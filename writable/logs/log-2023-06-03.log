@@ -1,0 +1,289 @@
+INFO - 2023-06-03 02:16:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-03 02:16:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-03 02:16:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-03 02:16:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-06-03 02:16:41 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\UsuariosController::$session is deprecated in APPPATH\Controllers\Admin\UsuariosController.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\UsuariosController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-06-03 02:16:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-06-03 02:16:47 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$db is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:16:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$areas is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 30.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:16:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$session is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 31.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-06-03 02:20:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-06-03 02:20:22 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$db is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:20:22 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$areas is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 30.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:20:22 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$session is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 31.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-06-03 02:20:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-06-03 02:20:32 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$db is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:20:32 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$areas is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 30.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:20:32 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$session is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 31.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-06-03 02:20:32 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin\TicketController.php(160): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\uploads\\tickets')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\TicketController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\TicketController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-06-03 02:21:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-06-03 02:21:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$db is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:21:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$areas is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 30.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:21:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$session is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 31.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-06-03 02:21:39 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin\TicketController.php(160): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\uploads\\tickets')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\TicketController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\TicketController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-06-03 02:21:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-06-03 02:21:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$db is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:21:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$areas is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 30.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:21:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$session is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 31.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-06-03 02:21:52 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin\TicketController.php(160): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\uploads\\tickets')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\TicketController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\TicketController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-06-03 02:22:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-06-03 02:22:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$db is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:22:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$areas is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 30.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:22:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$session is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 31.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-06-03 02:22:10 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin\TicketController.php(160): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\uploads')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\TicketController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\TicketController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-06-03 02:22:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-06-03 02:22:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$db is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:22:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$areas is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 30.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:22:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$session is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 31.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-06-03 02:22:48 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin\TicketController.php(160): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\uploads\\tickets')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\TicketController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\TicketController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-06-03 02:26:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-06-03 02:26:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$db is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:26:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$areas is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 30.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:26:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$session is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 31.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-06-03 02:26:34 --> Undefined variable $evidence
+in APPPATH\Controllers\Admin\TicketController.php on line 161.
+ 1 APPPATH\Controllers\Admin\TicketController.php(161): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $evidence', 'APPPATH\\Controllers\\Admin\\TicketController.php', 161)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\TicketController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-06-03 02:27:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-06-03 02:27:24 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$db is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:27:24 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$areas is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 30.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:27:24 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$session is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 31.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-06-03 02:27:24 --> Undefined variable $evidence
+in APPPATH\Controllers\Admin\TicketController.php on line 161.
+ 1 APPPATH\Controllers\Admin\TicketController.php(161): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $evidence', 'APPPATH\\Controllers\\Admin\\TicketController.php', 161)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\TicketController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-06-03 02:28:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-06-03 02:28:22 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$db is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:28:22 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$areas is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 30.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:28:22 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$session is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 31.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-06-03 02:28:22 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin\TicketController.php(161): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\uploads\\tickets', '1685759302_94fd439e3a6f5b05f807')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\TicketController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\TicketController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-06-03 02:30:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-06-03 02:30:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$db is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:30:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$areas is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 30.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+WARNING - 2023-06-03 02:30:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\TicketController::$session is deprecated in APPPATH\Controllers\Admin\TicketController.php on line 31.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Admin\TicketController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')

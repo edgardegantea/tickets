@@ -1,0 +1,235 @@
+INFO - 2023-01-25 19:19:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-01-25 19:47:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-01-25 19:47:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-01-25 19:47:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-01-25 20:31:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-01-25 20:31:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-01-25 20:31:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-01-25 20:31:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 20:31:30 --> Attempt to read property "area" on array
+in APPPATH/Views/admin/usuarios/edit.php on line 148.
+ 1 APPPATH/Views/admin/usuarios/edit.php(148): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/admin/usuarios/edit.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1177): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin/UsuariosController.php(146): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 20:32:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 20:32:25 --> Attempt to read property "area" on array
+in APPPATH/Views/admin/usuarios/edit.php on line 148.
+ 1 APPPATH/Views/admin/usuarios/edit.php(148): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/admin/usuarios/edit.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1177): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin/UsuariosController.php(146): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 20:33:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 20:33:03 --> Undefined variable $areas
+in APPPATH/Views/admin/usuarios/edit.php on line 151.
+ 1 APPPATH/Views/admin/usuarios/edit.php(151): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/admin/usuarios/edit.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1177): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin/UsuariosController.php(146): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 20:34:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 20:34:16 --> Undefined variable $areas
+in APPPATH/Views/admin/usuarios/edit.php on line 151.
+ 1 APPPATH/Views/admin/usuarios/edit.php(151): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/admin/usuarios/edit.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1177): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin/UsuariosController.php(146): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 20:39:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-01-25 20:46:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-01-25 20:46:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-01-25 20:46:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-01-25 20:46:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-01-25 20:46:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 20:46:46 --> Attempt to read property "id" on array
+in APPPATH/Views/admin/usuarios/edit.php on line 151.
+ 1 APPPATH/Views/admin/usuarios/edit.php(151): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/admin/usuarios/edit.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1177): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin/UsuariosController.php(149): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 20:57:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 20:57:32 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::find()
+in APPPATH/Controllers/Admin/UsuariosController.php on line 143.
+ 1 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 2 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 20:57:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 20:57:44 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::find()
+in APPPATH/Controllers/Admin/UsuariosController.php on line 143.
+ 1 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 2 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 20:58:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-01-25 20:58:35 --> mysqli_sql_exception: Column 'id' in where clause is ambiguous in /run/media/usrx/DEV/projects/itst/stickets6/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /run/media/usrx/DEV/projects/itst/stickets6/system/Database/MySQLi/Connection.php(295): mysqli->query()
+#1 /run/media/usrx/DEV/projects/itst/stickets6/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /run/media/usrx/DEV/projects/itst/stickets6/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /run/media/usrx/DEV/projects/itst/stickets6/system/Database/BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query()
+#4 /run/media/usrx/DEV/projects/itst/stickets6/app/Controllers/Admin/UsuariosController.php(143): CodeIgniter\Database\BaseBuilder->get()
+#5 /run/media/usrx/DEV/projects/itst/stickets6/system/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+#6 /run/media/usrx/DEV/projects/itst/stickets6/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#7 /run/media/usrx/DEV/projects/itst/stickets6/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#8 /run/media/usrx/DEV/projects/itst/stickets6/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /run/media/usrx/DEV/projects/itst/stickets6/system/Commands/Server/rewrite.php(47): require_once('...')
+#10 {main}
+CRITICAL - 2023-01-25 20:58:35 --> Column 'id' in where clause is ambiguous
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query()
+ 2 APPPATH/Controllers/Admin/UsuariosController.php(143): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 21:01:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-01-25 21:01:13 --> mysqli_sql_exception: Column 'id' in where clause is ambiguous in /run/media/usrx/DEV/projects/itst/stickets6/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /run/media/usrx/DEV/projects/itst/stickets6/system/Database/MySQLi/Connection.php(295): mysqli->query()
+#1 /run/media/usrx/DEV/projects/itst/stickets6/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /run/media/usrx/DEV/projects/itst/stickets6/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /run/media/usrx/DEV/projects/itst/stickets6/system/Database/BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query()
+#4 /run/media/usrx/DEV/projects/itst/stickets6/app/Controllers/Admin/UsuariosController.php(143): CodeIgniter\Database\BaseBuilder->get()
+#5 /run/media/usrx/DEV/projects/itst/stickets6/system/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+#6 /run/media/usrx/DEV/projects/itst/stickets6/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#7 /run/media/usrx/DEV/projects/itst/stickets6/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#8 /run/media/usrx/DEV/projects/itst/stickets6/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /run/media/usrx/DEV/projects/itst/stickets6/system/Commands/Server/rewrite.php(47): require_once('...')
+#10 {main}
+CRITICAL - 2023-01-25 21:01:13 --> Column 'id' in where clause is ambiguous
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query()
+ 2 APPPATH/Controllers/Admin/UsuariosController.php(143): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 21:01:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 21:01:22 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResult()
+in APPPATH/Controllers/Admin/UsuariosController.php on line 143.
+ 1 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 2 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 21:01:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 21:01:35 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::find()
+in APPPATH/Controllers/Admin/UsuariosController.php on line 143.
+ 1 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 2 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 21:01:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 21:01:43 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::find()
+in APPPATH/Controllers/Admin/UsuariosController.php on line 143.
+ 1 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 2 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 21:01:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 21:01:52 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::find()
+in APPPATH/Controllers/Admin/UsuariosController.php on line 143.
+ 1 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 2 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 21:02:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 21:02:32 --> Undefined variable $areas
+in APPPATH/Controllers/Admin/UsuariosController.php on line 147.
+ 1 APPPATH/Controllers/Admin/UsuariosController.php(147): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 21:12:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 21:12:21 --> Undefined array key "id"
+in APPPATH/Views/admin/usuarios/edit.php on line 16.
+ 1 APPPATH/Views/admin/usuarios/edit.php(16): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/admin/usuarios/edit.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1177): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin/UsuariosController.php(152): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 21:12:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 21:12:40 --> Attempt to read property "id" on array
+in APPPATH/Views/admin/usuarios/edit.php on line 16.
+ 1 APPPATH/Views/admin/usuarios/edit.php(16): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/admin/usuarios/edit.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1177): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin/UsuariosController.php(152): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 21:30:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 21:30:46 --> Undefined array key "id"
+in APPPATH/Views/admin/usuarios/edit.php on line 16.
+ 1 APPPATH/Views/admin/usuarios/edit.php(16): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/admin/usuarios/edit.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1177): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin/UsuariosController.php(152): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 21:31:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 21:31:38 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::find()
+in APPPATH/Controllers/Admin/UsuariosController.php on line 143.
+ 1 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 2 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
+INFO - 2023-01-25 21:47:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-01-25 21:47:00 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::find()
+in APPPATH/Controllers/Admin/UsuariosController.php on line 143.
+ 1 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin\UsuariosController->edit()
+ 2 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('FCPATH/index.php')
