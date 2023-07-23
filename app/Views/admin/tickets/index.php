@@ -49,7 +49,7 @@
 
                         <td>
                             <p><a href="<?= base_url('/admin/tickets/'.$ticket->id) ?>" class="text" title="Ver"><?= esc($ticket->title) ?></a></p>
-                            <?= $numRespuestas ?>
+                            
                         </td>
 
                         <td>

@@ -9,6 +9,7 @@ use App\Models\Area;
 use App\Models\Status;
 use App\Models\Prioridad;
 use App\Models\Categoria;
+use App\Models\MensajeModel;
 
 // Usar dompdf para la generación de PDF
 use Dompdf\Dompdf;
@@ -51,8 +52,7 @@ class TicketController extends ResourceController
         $builder3->join('areas as a', 'user.area = a.id');
         $builder3->join('status', 't.status = status.id');
        
-
-        $tickets = $builder3->where('usuario', $this->session->id)->orderBy('id', 'DESC')->getResult();
+        $tickets = $builder3->where('usuario', $this->session->id)->get()->getResult();
 
         $data = [
             'title'     => 'Tickets de soporte',
@@ -70,25 +70,24 @@ class TicketController extends ResourceController
      */
     public function show($id = null)
     {
-        $ticket = $this->ticket->find($id);
-        if ($ticket) {
+        $ticketModel = new Ticket();
+        $mensajeModel = new MensajeModel();
 
-            $builder = $this->db->table("status as s");
-            $builder->select('s.name');
-            $builder->join('tickets as t', 's.id = t.status');
-            $st = $builder->get()->getResult();
+        $db = \Config\Database::connect();
 
-            $data = [
-                // 'ticket'  => $ticket->where('id', $id)->first(),
-                'ticket' => $ticket,
-                'status' => $st,
-                'title' => "Información del ticket de soporte seleccionado"
-            ];
+        $builder3 = $this->db->table('mensajes as m');
+        $builder3->select('m.*, user.name, user.apaterno, user.amaterno');
+        $builder3->join('users as user', 'm.usuario_id = user.id');
+        $builder3->orderBy('m.created_at', 'DESC');
+        $mensajes = $builder3->get()->getResult();
 
-            return view('usuario/tickets/show', $data);
-        } else {
-            return redirect()->to('usuario/tickets');
-        }
+        $data['ticket'] = $ticketModel->find($id);
+        // $data['mensajes'] = $mensajeModel->where('ticket_id', $id)->orderBy('created_at', 'DESC')->findAll();
+        $data['mensajes'] = $mensajes;
+        //$data['usuario'] = $usuario;
+        $data['title'] = "Ver ticket";
+
+        return view('usuario/tickets/show', $data);
     }
 
     /**
@@ -447,5 +446,33 @@ class TicketController extends ResourceController
         $pdf->render();
         $pdf->stream();
     }
+
+
+
+
+    public function agregarMensaje($ticketId)
+    {
+        return view('usuario/mensajes/create', ['ticketId' => $ticketId]);
+    }
+
+
+
+    public function guardarMensaje()
+    {
+        $mensajeModel = new MensajeModel();
+
+        $this->session = \Config\Services::session();
+
+        $data = [
+            'usuario_id'    => $this->session->id,
+            'ticket_id'     => $this->request->getPost('ticket_id'),
+            'mensaje'       => $this->request->getPost('mensaje'),
+        ];
+
+        $mensajeModel->insert($data);
+        return redirect()->to('usuario/tickets/' . $data['ticket_id']);
+    }
+
+
 
 }

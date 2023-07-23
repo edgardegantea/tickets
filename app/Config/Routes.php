@@ -96,6 +96,11 @@ $routes->group("admin", ["filter" => "auth"], function ($routes) {
 // Editor routes
 $routes->group("usuario", ["filter" => "auth"], function ($routes) {
     $routes->get("/", "Usuario\UsuarioController::index");
+
+    $routes->get('tickets/(:num)/agregarMensaje', 'Usuario\TicketController::agregarMensaje/$1');
+    $routes->post('tickets/mensajes', 'Usuario\TicketController::guardarMensaje');
+
+
     $routes->get("perfil", "Usuario\UsuarioController::perfil");
     $routes->resource('tickets', ['controller' => 'Usuario\TicketController']);
 });

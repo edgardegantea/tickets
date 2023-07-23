@@ -58,8 +58,8 @@ echo '<a class="button is-outlined is-light" href="' . $_SERVER['HTTP_REFERER'] 
                 <?php foreach ($mensajes as $mensaje) : ?>         
                     <div class="card">
                         <div class="card-body" style="text-align: justify;">
-                            <p><?= $mensaje['mensaje']; ?></p>
-                            <p class="text-muted float-right mb-1">(<?= $mensaje['created_at']; ?>)</p>
+                            <p><strong>Usuario <?= $mensaje->name ?>:</strong> <?= $mensaje->mensaje; ?></p>
+                            <p class="text-muted float-right mb-1">(<?= $mensaje->created_at; ?>)</p>
                         </div>
                     </div>
                     

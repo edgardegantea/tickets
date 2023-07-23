@@ -34,11 +34,7 @@ class TicketController extends ResourceController
     }
 
 
-    /**
-     * Return an array of resource objects, themselves in array format
-     *
-     * @return mixed
-     */
+
     public function index()
     {
         $db = \Config\Database::connect();
@@ -69,10 +65,11 @@ class TicketController extends ResourceController
 
 
         
-        // $numResp = $this->db->table('mensajes')->where('mensajes.ticket_id', $this->ticket->id)->countAllResults();
+        /* $numResp = $this->db->table('mensajes')->where('mensajes.ticket_id', $this->ticket->id)->countAllResults();
         $numResp1 = $this->db->table('mensajes');
         $numResp1->select('count(*) as total')->join('mensajes as m', 'm.ticket_id = ' . $this->ticket->id);
         $numResp = $numResp1->get()->getResult();
+    */
 
         $data = [
             'title'     => 'Tickets de soporte',
@@ -83,7 +80,7 @@ class TicketController extends ResourceController
             'tickets2'   => $tickets2->orderBy('id', 'desc')->findAll(),
             'usuario'   => $usuario,
             'tickets' => $tickets,
-            'numRespuestas' => $numResp
+            // 'numRespuestas' => $numResp
         ];
 
         return view('admin/tickets/index', $data);
@@ -97,8 +94,23 @@ class TicketController extends ResourceController
         $ticketModel = new Ticket();
         $mensajeModel = new MensajeModel();
 
+
+        $db = \Config\Database::connect();
+
+        $builder = $db->table('users')->select('users.name');
+        $builder->join('mensajes', 'mensajes.usuario_id = users.id');
+        $usuario = $builder->get();
+
+        $builder3 = $this->db->table('mensajes as m');
+        $builder3->select('m.*, user.name, user.apaterno, user.amaterno');
+        $builder3->join('users as user', 'm.usuario_id = user.id');
+        $builder3->orderBy('m.created_at', 'DESC');
+        $mensajes = $builder3->get()->getResult();
+
         $data['ticket'] = $ticketModel->find($id);
-        $data['mensajes'] = $mensajeModel->where('ticket_id', $id)->orderBy('created_at', 'DESC')->findAll();
+        // $data['mensajes'] = $mensajeModel->where('ticket_id', $id)->orderBy('created_at', 'DESC')->findAll();
+        $data['mensajes'] = $mensajes;
+        // $data['usuario'] = $usuario;
         $data['title'] = "Ver ticket";
 
         return view('admin/tickets/show', $data);
@@ -561,9 +573,12 @@ class TicketController extends ResourceController
     {
         $mensajeModel = new MensajeModel();
 
+        $this->session = \Config\Services::session();
+
         $data = [
-            'ticket_id' => $this->request->getPost('ticket_id'),
-            'mensaje'   => $this->request->getPost('mensaje'),
+            'usuario_id'    => $this->session->id,
+            'ticket_id'     => $this->request->getPost('ticket_id'),
+            'mensaje'       => $this->request->getPost('mensaje'),
         ];
 
         $mensajeModel->insert($data);

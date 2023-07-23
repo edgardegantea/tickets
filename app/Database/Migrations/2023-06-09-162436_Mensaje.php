@@ -13,8 +13,8 @@ class Mensaje extends Migration
         $this->forge->addField([
             'id'            => ['type' => 'int', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
             'ticket_id'     => ['type' => 'int', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => false],
-            // 'usuario_id'    => ['type' => 'int', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => false],
-            'mensaje'       => ['type' => 'text'],
+            'usuario_id'    => ['type' => 'int', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => false],
+            'mensaje'       => ['type' => 'text', 'null' => true],
             'created_at'    => ['type' => 'timestamp', 'default' => new RawSql('CURRENT_TIMESTAMP')],
             'updated_at'    => ['type' => 'datetime', 'null' => true],
             'deleted_at'    => ['type' => 'datetime', 'null' => true]
@@ -22,7 +22,7 @@ class Mensaje extends Migration
 
         $this->forge->addKey('id', true);
         $this->forge->addForeignKey('ticket_id', 'tickets', 'id', 'CASCADE', 'CASCADE');
-        // $this->forge->addForeignKey('usuario_id', 'users', 'id', 'SET_NULL', 'SET_NULL');
+        $this->forge->addForeignKey('usuario_id', 'users', 'id', 'SET_NULL', 'SET_NULL');
 
         $this->forge->createTable('mensajes', true);
 

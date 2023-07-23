@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class MensajeModel extends Model
 {
     protected $table            = 'mensajes';
-    protected $allowedFields    = ['ticket_id', 'mensaje'];
+    protected $allowedFields    = ['usuario_id', 'ticket_id', 'mensaje'];
 
     protected $useTimestamps = true;
 }
