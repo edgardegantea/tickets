@@ -14,10 +14,9 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Área</th>
+                        <th>Categoría</th>
                         <th>Detalles</th>
-                        <th>Correo electrónico</th>
-                        <th>Acciones</th>
+                        <!-- <th>Acciones</th> -->
                     </tr>
                 </thead>
 
@@ -27,9 +26,8 @@
                         <tr>
                             <td><?= esc($categoria['id']); ?></td>
                             <td><?= esc($categoria['name']); ?></td>
-                            <td><?= esc($categoria['slug']); ?></td>
                             <td><?= esc($categoria['description']) ?></td>
-                            <td class="d-flex">
+                            <!-- <td class="d-flex">
                                 <a href="<?= base_url('/admin/categorias/'.$categoria['id']); ?>" class="btn btn-sm btn-light mx-1" title="Ver"><span class="fas fa-eye"><span></a>
                                 <a href="<?= base_url('/admin/categorias/'.$categoria['id'].'/edit'); ?>" class="btn btn-sm btn-light mx-1"><span class="fas fa-edit"><span></a>
                                 <form class="display-none" method="post" action="<?= base_url('admin/categorias/'.$categoria['id']); ?>" id="categoriaDeleteForm<?=$categoria['id']?>">
@@ -37,6 +35,7 @@
                                     <a href="javascript:void(0)" onclick="deleteCategoria('categoriaDeleteForm<?=$categoria['id']; ?>')" class="btn btn-sm btn-danger" title="Eliminar registro"><span class="fas fa-trash"></span></a>
                                 </form>
                             </td>
+                            -->
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>
@@ -48,8 +47,8 @@
                         <th>ID</th>
                         <th>Área</th>
                         <th>Detalles</th>
-                        <th>Correo electrónico</th>
-                        <th>Acciones</th>
+                        <!-- <th>Correo electrónico</th>
+                        <th>Acciones</th> -->
                     </tr>
                 </tfoot>
             </table>

@@ -9,6 +9,9 @@
         <div class="card-header">
             <a href="<?= base_url('admin/tickets/new') ?>" class="btn btn-primary float-right">Nuevo</a>
             <h3 class="card-title"><?= esc($title); ?></h3>
+        <a href="<?= base_url('admin/tickets/lista') ?>" class="btn btn-light mr-2 float-right">Vista de Lista</a>
+            <h3 class="card-title"><?= esc($title); ?></h3>
+            
         </div>
 
         <div class="card-body">

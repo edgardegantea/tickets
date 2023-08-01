@@ -2,6 +2,33 @@
 
 <?= $this->section('content'); ?>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.css">
+<!-- Mostrar mensaje SweetAlert2 de éxito si existe -->
+<?php if(session()->getFlashdata('success')): ?>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Éxito',
+            text: '<?php echo session()->getFlashdata('success'); ?>',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Aceptar'
+        });
+    </script>
+<?php endif; ?>
+
+<!-- Mostrar mensaje SweetAlert2 de error si existe -->
+<?php if(session()->getFlashdata('error')): ?>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: '<?php echo session()->getFlashdata('error'); ?>',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Aceptar'
+        });
+    </script>
+<?php endif; ?>
+
 <div>
     <div class="card">
         <div class="card-header">
@@ -61,10 +88,13 @@
                             <td class="d-flex">
                                 <a href="<?= base_url('/admin/usuarios/'.$usuario->id); ?>" class="btn btn-sm btn-light mx-1" title="Ver"><span class="fas fa-eye"><span></a>
                                 <a href="<?= base_url('/admin/usuarios/'.$usuario->id.'/edit'); ?>" class="btn btn-sm btn-light mx-1"><span class="fas fa-edit"><span></a>
+                                <a href="<?= site_url('/admin/usuarios/delete/' . $usuario->id) ?>" onclick="return confirm('¿Estás seguro de eliminar este registro?')">Eliminar</a>
+                                <!--
                                 <form class="display-none" method="post" action="<?= base_url('admin/usuarios/'.$usuario->id); ?>" id="postDeleteForm<?=$usuario->id?>">
                                     <input type="hidden" name="_method" value="DELETE"/>
                                     <a href="javascript:void(0)" onclick="deletePost('postDeleteForm<?=$usuario->id; ?>')" class="btn btn-sm btn-danger" title="Eliminar registro"><span class="fas fa-trash"></span></a>
                                 </form>
+                                -->
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -98,6 +128,8 @@
     }
 </script>
 
+
+<script src="<?= base_url('assets/js/sweetalert2.all.min.js') ?>"></script>
 
 <?= $this->endSection(); ?>
 

@@ -24,10 +24,10 @@ class User extends Seeder
                 "created_at"    => "2022-10-30 10:00:00"
             ],
             [
-                "name"          => "Ana",
-                "apaterno"      => "López",
-                "amaterno"      => "Hernández",
-                "email"         => "usuario2@mail.com",
+                "name"          => "Guadalupe",
+                "apaterno"      => "García",
+                "amaterno"      => "toribio",
+                "email"         => "guadalupe@mail.com",
                 "phone_no"      => "2311234566",
                 "password"      => password_hash("12345678", PASSWORD_DEFAULT),
                 "role"          => "usuario",

@@ -14,11 +14,25 @@
                 <h4>Información básica del usuario</h4>
 
                 
-                <form action="<?= base_url('admin/usuarios/'.$usuario['id']) ?>" method="POST">
+                <form action="<?= base_url('admin/usuarios/'.$usuario['id']) ?>" method="POST" enctype="multipart/form-data">
 
                 <?= csrf_field() ?>
                 
                 <input type="hidden" name="_method" value="PUT" />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Imagen de perfil:</label>
+                                <input type="file" name="image">
+
+                                <?php if ($usuario['image']): ?>
+                                    <p>Imagen actual:</p>
+                                    <img src="<?php echo base_url('uploads/' . $usuario['image']); ?>" width="200" alt="Imagen de usuario">
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
 
                 <div class="row">
                     <div class="col-md-6">

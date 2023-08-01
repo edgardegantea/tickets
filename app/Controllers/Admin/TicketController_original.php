@@ -106,6 +106,7 @@ class TicketController extends ResourceController
         $priorities = model(Prioridad::class);
         $status = model(Status::class);
         $usuarios = model(UserModel::class);
+        $attachmentModel = model(Attachment::class);
         // $areas = model('Area');
 
         $data = [

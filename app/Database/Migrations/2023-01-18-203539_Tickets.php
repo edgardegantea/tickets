@@ -20,7 +20,7 @@ class Tickets extends Migration
             'slug'          => ['type' => 'varchar', 'constraint' => 150],
             'description'   => ['type' => 'text'],
             // 'evidence'      => ['type' => 'int', 'constraint' => 12, 'unsigned' => true],
-            'evidence'      => ['type' => 'varchar', 'constraint' => 255, 'null' => true],
+            // 'evidence'      => ['type' => 'varchar', 'constraint' => 255, 'null' => true],
             'url'           => ['type' => 'varchar', 'constraint' => 255, 'null' => true],
             'status'        => ['type' => 'varchar', 'constraint' => 5, 'null' => true],
             'phone'         => ['type' => 'varchar', 'constraint' => 15, 'null' => true],

@@ -113,6 +113,42 @@
                     </ul>
                 </li>
 
+                <li class="nav-item">
+                    <a href="<?php echo base_url('admin/areas'); ?>" class="nav-link">
+                        <i class="nav-icon fa fa-bars"></i>
+                        <p>
+                            Categorías
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <!--
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('admin/categorias/new'); ?>" class="nav-link">
+                                <i class="fas fa-plus nav-icon"></i>
+                                <p>Nueva categoría</p>
+                            </a>
+                        </li>
+                        -->
+
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('admin/categorias'); ?>" class="nav-link">
+                                <i class="fas fa-circle nav-icon"></i>
+                                <p>Todas las categorías</p>
+                            </a>
+                        </li>
+                        <!--
+                        <li class="nav-item">
+                            <a href="pages/layout/top-nav.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Atendidos</p>
+                            </a>
+                        </li>
+                    -->
+                    </ul>
+                </li>
+
+
 
                 <li class="nav-item">
                     <a href="<?php echo base_url('admin/tickets'); ?>" class="nav-link">
@@ -151,6 +187,33 @@
                     </ul>
                 </li>
 
+
+
+
+                <li class="nav-item">
+                    <a href="<?php echo base_url('admin/areas'); ?>" class="nav-link">
+                        <i class="nav-icon fa fa-cog"></i>
+                        <p>
+                            Configuración
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('admin/areas'); ?>" class="nav-link">
+                                <i class="fas fa-circle text-secondary nav-icon"></i>
+                                <p>Áreas</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('admin/categorias'); ?>" class="nav-link">
+                                <i class="fas fa-circle text-primary nav-icon"></i>
+                                <p>Categorias</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
 
                 <!--
                 <li class="nav-item">

@@ -6,9 +6,7 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">
-                        <?= session()->get('name') ?>
-                    </div>
+
 
 
                     <div class="card-body">

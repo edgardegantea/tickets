@@ -60,6 +60,7 @@ class UserController extends BaseController
             'amaterno'      => $user['amaterno'],
             'phone_no'      => $user['phone_no'],
             'email'         => $user['email'],
+            'image'         => $user['image'],
             'isLoggedIn'    => true,
             "role"          => $user['role'],
             "area"          => $user['area']

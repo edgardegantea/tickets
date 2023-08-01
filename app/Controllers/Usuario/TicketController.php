@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Usuario;
 
+use App\Models\AdjuntosMensajeModel;
 use App\Models\Ticket;
 use App\Models\UserModel;
 use CodeIgniter\RESTful\ResourceController;
@@ -9,7 +10,9 @@ use App\Models\Area;
 use App\Models\Status;
 use App\Models\Prioridad;
 use App\Models\Categoria;
+use CodeIgniter\Files\File;
 use App\Models\MensajeModel;
+use App\Models\Attachment;
 
 // Usar dompdf para la generación de PDF
 use Dompdf\Dompdf;
@@ -19,7 +22,7 @@ class TicketController extends ResourceController
 
     private $ticket;
     private $area;
-
+    private $attachmentModel;
 
     public function __construct()
     {
@@ -28,7 +31,9 @@ class TicketController extends ResourceController
         $this->db = db_connect();
         $pager = \Config\Services::pager();
         $this->ticket = new Ticket;
+        $this->mensaje = new MensajeModel;
         $this->areas = new Area();
+        $this->attachmentModel = new Attachment();
         $this->session = \Config\Services::session();
     }
 
@@ -68,6 +73,7 @@ class TicketController extends ResourceController
      *
      * @return mixed
      */
+    /*
     public function show($id = null)
     {
         $ticketModel = new Ticket();
@@ -89,6 +95,137 @@ class TicketController extends ResourceController
 
         return view('usuario/tickets/show', $data);
     }
+    */
+
+    public function show($id = null)
+    {
+        /*
+        $ticketModel = new Ticket();
+        $mensajeModel = new MensajeModel();
+        $attachmentModel = new Attachment();
+        $adjuntosMensaje = new AdjuntosMensajeModel();
+
+
+        $db = \Config\Database::connect();
+
+        $builder = $db->table('users')->select('users.name');
+        $builder->join('mensajes', 'mensajes.usuario_id = users.id');
+        $usuario = $builder->get();
+        */
+
+        /*
+        $builder3 = $this->db->table('mensajes as m');
+        $builder3->select('m.*, user.name, user.apaterno, user.amaterno');
+        $builder3->join('users as user', 'm.usuario_id = ', $this->ticket->id);
+        $builder3->orderBy('m.created_at', 'DESC');
+        $mensajes0 = $builder3->get()->getResult();
+        */
+
+        /*
+        $builder3 = $this->db->table('mensajes as m');
+        $builder3->select('m.*, user.name, user.apaterno, user.amaterno');
+        $builder3->join('tickets as t', 'm.ticket_id = t.id');
+        $builder3->join('users as user', 'm.usuario_id = user.id');
+        $builder3->where('m.ticket_id', 't.id');
+        $builder3->orderBy('m.created_at', 'DESC');
+        $mensajes_anterior = $builder3->get()->getResult();
+
+
+        $builder5 = $this->db->table('mensajes as m');
+        $builder5->select('m.*');
+        $builder5->join('tickets as t', 'm.ticket_id = t.id');
+        $builder5->orderBy('m.created_at', 'DESC');
+        $mensajes_anterior2 = $builder5->get()->getResult();
+
+
+        $builder6 = $this->db->table('adjuntos_mensaje as am');
+        $builder6->select('m.*, am.file_name');
+        $builder6->join('mensajes as m', 'am.mensaje_id = m.id');
+        // $builder6->join('tickets as t', 'm.ticket_id = t.id');
+        // $builder6->orderBy('am.file_name', 'DESC');
+        $adjuntosMensaje = $builder6->get()->getResult();
+
+
+        $data['ticket'] = $ticketModel->find($id);
+        $data['mensajes'] = $mensajeModel->where('ticket_id', $id)->orderBy('created_at', 'DESC')->findAll();
+        // $data['mensajes'] = $mensajes;
+        $data['attachments'] = $attachmentModel->where('ticket_id', $id)->findAll();
+
+        // $data['adjuntosMensaje'] = $adjuntosMensaje->join('mensajes', 'mensajes.id = adjuntos_mensaje.mensaje_id')->findAll();
+        $data['adjuntosMensaje'] = $adjuntosMensaje;
+        // $data['usuario'] = $usuario;
+        $data['title'] = "Ver ticket";
+
+        // dd($data);
+
+        return view('usuario/tickets/show', $data);
+        */
+
+
+
+
+        $ticketModel = new Ticket();
+        $mensajeModel = new MensajeModel();
+        $attachmentModel = new Attachment();
+        $adjuntosMensaje = new AdjuntosMensajeModel();
+
+
+        $db = \Config\Database::connect();
+
+        $builder = $db->table('users')->select('users.name');
+        $builder->join('mensajes', 'mensajes.usuario_id = users.id');
+        $usuario = $builder->get();
+
+        /*
+        $builder3 = $this->db->table('mensajes as m');
+        $builder3->select('m.*, user.name, user.apaterno, user.amaterno');
+        $builder3->join('users as user', 'm.usuario_id = ', $this->ticket->id);
+        $builder3->orderBy('m.created_at', 'DESC');
+        $mensajes0 = $builder3->get()->getResult();
+        */
+
+        $builder3 = $this->db->table('mensajes as m');
+        $builder3->select('m.*, user.name, user.apaterno, user.amaterno');
+        $builder3->join('tickets as t', 'm.ticket_id = t.id');
+        $builder3->join('users as user', 'm.usuario_id = user.id');
+        $builder3->where('m.ticket_id', 't.id');
+        $builder3->orderBy('m.created_at', 'DESC');
+        $mensajes_anterior = $builder3->get()->getResult();
+
+
+        $builder5 = $this->db->table('mensajes as m');
+        $builder5->select('m.*');
+        $builder5->join('tickets as t', 'm.ticket_id = t.id');
+        $builder5->orderBy('m.created_at', 'DESC');
+        $mensajes_anterior2 = $builder5->get()->getResult();
+
+
+        $builder6 = $this->db->table('adjuntos_mensaje as am');
+        $builder6->select('m.*, am.file_name');
+        $builder6->join('mensajes as m', 'am.mensaje_id = m.id');
+        // $builder6->join('tickets as t', 'm.ticket_id = t.id');
+        // $builder6->orderBy('am.file_name', 'DESC');
+        $adjuntosMensaje = $builder6->get()->getResult();
+
+
+        $data['ticket'] = $ticketModel->find($id);
+        $data['mensajes'] = $mensajeModel->where('ticket_id', $id)->orderBy('created_at', 'DESC')->findAll();
+        // $data['mensajes'] = $mensajes;
+        $data['attachments'] = $attachmentModel->where('ticket_id', $id)->findAll();
+
+        // $data['adjuntosMensaje'] = $adjuntosMensaje->join('mensajes', 'mensajes.id = adjuntos_mensaje.mensaje_id')->findAll();
+        // $data['adjuntosMensaje'] = $adjuntosMensaje;
+        // $data['usuario'] = $usuario;
+        $data['title'] = "Ver ticket";
+
+        // dd($data);
+
+        return view('usuario/tickets/show', $data);
+    }
+
+
+
+
 
     /**
      * Return a new resource object, with default properties
@@ -123,91 +260,53 @@ class TicketController extends ResourceController
     {
 
         helper(['form']);
+        
+        $ticketModel = new Ticket();
+        $attachmentModel = new Attachment();
+        $this->session = \Config\Services::session();
 
-        $rules = [
-            // 'usuario'       => 'required',
-            'category'      => 'required',
-            'priority'      => 'required',
-            'title'         => 'required|min_length[5]|max_length[150]',
-            'description'   => 'required|min_length[5]',
-            'status'        => 'required'
-            // 'phone'         => 'required'
-            // 'email'         => 'required'
-        ];
-
-        if ($this->validate($rules)) {
-            $ticketModel = new Ticket();
-
-            $this->session = \Config\Services::session();
 
             $data = [
-                // 'usuario'       => $this->request->getPost('usuario'),
                 'usuario'       => $this->session->id,
                 'category'      => $this->request->getPost('category'),
                 'priority'      => $this->request->getPost('priority'),
                 'title'         => $this->request->getPost('title'),
                 'description'   => $this->request->getPost('description'),
-                'status'        => $this->request->getPost('status'),
-                'phone'         => $this->session->phone_no,
-                // 'phone'         => $this->request->getPost('phone'),
-                'email'         => $this->session->email
-                // 'email'         => $this->request->getPost('email')
+                'slug'          => url_title($this->request->getPost('description'), '-', true),
+                'url'           => $this->request->getPost('url'),
+                'status'        => 's01',
+                'phone'         => $this->request->getPost('phone'),
+                'email'         => $this->request->getPost('email'),
+                'remote'        => $this->request->getPost('remote'),
+                'dateMeeting'   => $this->request->getPost('dateMeeting'),
+                'hourMeeting'   => $this->request->getPost('hourMeeting'),
+                'ok'            => true
             ];
-            $ticketModel->save($data);
-            return redirect()->to('usuario/tickets');
-        } else {
-            $categories = model(Categoria::class);
-            $priorities = model(Prioridad::class);
 
-            $data = [
-                'validation' => $this->validator,
-                'title'      => 'Nuevo registro',
-                'categories'     => $categories->findAll(),
-                'priorities'    => $priorities->findAll()
-            ];
-            echo view('usuario/tickets/create', $data);
-            // return view('usuarios/create', $data);
-        }
+            $ticketId = $ticketModel->insert($data);
 
-        /*
-        helper(['form']);
+            $files = $this->request->getFiles();
 
-        $inputs = $this->validate([
-            // 'area' => '',
-            'usuario'       => 'required',
-            'category'      => 'required',
-            'priority'      => 'required',
-            'title'         => 'required|min_length[5]|max_length[150]',
-            'description'   => 'required|min_length[5]',
-            'status'        => 'required',
-            'phone'         => 'required',
-            'email'         => 'required'
-        ]);
+            foreach ($files['attachments'] as $attachment) {
+                if ($attachment->isValid() && !$attachment->hasMoved()) {
+                    $newName = $attachment->getRandomName();
+                    $attachment->move(ROOTPATH . 'public/uploads', $newName);
 
-        if (!$inputs) {
-            return view('tickets/create', ['validation' => $this->validator]);
-        }
+                    $attachmentModel->insert([
+                        'ticket_id' => $ticketId,
+                        'file_name' => $newName,
+                    ]);
+                }
+            }
 
-        $this->ticket->save(
-            // 'area'          => $this->request->getPost('area'),
-            'usuario'       => $this->request->getPost('usuario'),
-            'category'      => $this->request->getPost('category'),
-            'priority'      => $this->request->getPost('priority'),
-            'title'         => $this->request->getPost('title'),
-            'slug'          => url_title($this->request->getPost('title'), '-', true),
-            'description'   => $this->request->getPost('description'),
-            'evidence'      => $this->request->getPost('evidence'),
-            'url'           => $this->request->getPost('url'),
-            'status'        => $this->request->getPost('status'),
-            'phone'         => $this->request->getPost('phone'),
-            'email'         => $this->request->getPost('email')
-        ]);
+            return redirect()->to('/usuario/tickets')->with('success', 'Registro exitoso');
 
-        session()->setFlashdata('success', 'Publicación guardada con éxito');
-
-        return redirect()->to(site_url('/tickets'));
-        */
     }
+
+
+
+
+
 
     /**
      * Return the editable properties of a resource object

@@ -36,7 +36,8 @@ $routes->set404Override();
 
 
 $routes->get('/', 'Home::index');
-
+$routes->get('registro', 'RegistroController::new');
+$routes->post('registro', 'RegistroController::create');
 
 $routes->match(['get', 'post'], 'login', 'UserController::login', ["filter" => "noauth"]);
 
@@ -45,6 +46,11 @@ $routes->match(['get', 'post'], 'login', 'UserController::login', ["filter" => "
 $routes->group("admin", ["filter" => "auth"], function ($routes) {
     
     $routes->get('/', 'Admin\AdminController::index');
+
+    $routes->get('tickets/lista', 'Admin\TicketController::lista'); 
+
+    $routes->get('usuarios/edit_password/(:num)', 'Admin\UsuariosController::editPassword/$1'); // Mostrar formulario para editar la contraseña
+    $routes->post('usuarios/update_password/(:num)', 'Admin\UsuariosController::updatePassword/$1'); // Actualizar la contraseña del usuario
 
     // $routes->get('userinfo', 'admin\UsuariosController::index');
     // $routes->get('userinfo/new', 'admin\UsuariosController::new');
@@ -62,6 +68,10 @@ $routes->group("admin", ["filter" => "auth"], function ($routes) {
     $routes->resource('usuarios', ['controller' => 'Admin\UsuariosController']);
     $routes->resource('areas', ['controller' => 'Admin\AreaController']);
     $routes->resource('categorias', ['controller' => 'Admin\CategoriaController']);
+
+
+
+
 
     /*
     $routes->group('posts', ['namespace' => 'App\Controllers'], function(RouteCollection $routes) {

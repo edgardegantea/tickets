@@ -9,7 +9,7 @@
         </div>
 
 
-        <form action="/admin/usuarios" method="post">
+        <form action="<?= base_url('/admin/usuarios') ?>" method="post" enctype="multipart/form-data">
 
             <div class="card-body">
                 <h4>Información básica del usuario</h4>
@@ -93,6 +93,13 @@
                                 <option value="admin">Administrador</option>
                                 <option value="usuario">Usuario</option>
                             </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleSelectBorderWidth2">Foto de perfil:</label>
+                            <input type="file" name="image" accept="image/*" id="" class="">
                         </div>
                     </div>
                 </div>

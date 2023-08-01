@@ -1,0 +1,477 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 24-07-2023 a las 20:34:13
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `tickets`
+--
+CREATE DATABASE IF NOT EXISTS `tickets` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `tickets`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `areas`
+--
+
+CREATE TABLE `areas` (
+  `id` int(12) UNSIGNED NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `email` varchar(80) DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- RELACIONES PARA LA TABLA `areas`:
+--
+
+--
+-- Truncar tablas antes de insertar `areas`
+--
+
+TRUNCATE TABLE `areas`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `attachments`
+--
+
+CREATE TABLE `attachments` (
+  `id` int(11) NOT NULL,
+  `ticketid` int(11) NOT NULL,
+  `file_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- RELACIONES PARA LA TABLA `attachments`:
+--
+
+--
+-- Truncar tablas antes de insertar `attachments`
+--
+
+TRUNCATE TABLE `attachments`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `bitacoras`
+--
+
+CREATE TABLE `bitacoras` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `ticket` int(11) UNSIGNED NOT NULL,
+  `mensaje` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- RELACIONES PARA LA TABLA `bitacoras`:
+--   `ticket`
+--       `tickets` -> `id`
+--
+
+--
+-- Truncar tablas antes de insertar `bitacoras`
+--
+
+TRUNCATE TABLE `bitacoras`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(12) UNSIGNED NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `slug` varchar(150) NOT NULL,
+  `description` text DEFAULT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- RELACIONES PARA LA TABLA `categories`:
+--
+
+--
+-- Truncar tablas antes de insertar `categories`
+--
+
+TRUNCATE TABLE `categories`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `mensajes`
+--
+
+CREATE TABLE `mensajes` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `ticket_id` int(11) UNSIGNED NOT NULL,
+  `usuario_id` int(11) UNSIGNED NOT NULL,
+  `mensaje` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- RELACIONES PARA LA TABLA `mensajes`:
+--   `ticket_id`
+--       `tickets` -> `id`
+--   `usuario_id`
+--       `users` -> `id`
+--
+
+--
+-- Truncar tablas antes de insertar `mensajes`
+--
+
+TRUNCATE TABLE `mensajes`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `version` varchar(255) NOT NULL,
+  `class` varchar(255) NOT NULL,
+  `group` varchar(255) NOT NULL,
+  `namespace` varchar(255) NOT NULL,
+  `time` int(11) NOT NULL,
+  `batch` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- RELACIONES PARA LA TABLA `migrations`:
+--
+
+--
+-- Truncar tablas antes de insertar `migrations`
+--
+
+TRUNCATE TABLE `migrations`;
+--
+-- Volcado de datos para la tabla `migrations`
+--
+
+INSERT IGNORE INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
+(11, '2023-01-18-203512', 'App\\Database\\Migrations\\Users', 'default', 'App', 1690221432, 1),
+(12, '2023-01-18-203539', 'App\\Database\\Migrations\\Tickets', 'default', 'App', 1690221432, 1),
+(13, '2023-01-18-203610', 'App\\Database\\Migrations\\Areas', 'default', 'App', 1690221432, 1),
+(14, '2023-01-18-204257', 'App\\Database\\Migrations\\Categorias', 'default', 'App', 1690221432, 1),
+(15, '2023-01-18-204323', 'App\\Database\\Migrations\\Prioridades', 'default', 'App', 1690221432, 1),
+(16, '2023-01-18-204349', 'App\\Database\\Migrations\\Status', 'default', 'App', 1690221432, 1),
+(17, '2023-01-18-204415', 'App\\Database\\Migrations\\Kanban', 'default', 'App', 1690221432, 1),
+(18, '2023-01-18-204425', 'App\\Database\\Migrations\\Evidencia', 'default', 'App', 1690221432, 1),
+(19, '2023-02-03-151826', 'App\\Database\\Migrations\\Bitacora', 'default', 'App', 1690221432, 1),
+(20, '2023-06-09-162436', 'App\\Database\\Migrations\\Mensaje', 'default', 'App', 1690221432, 1),
+(21, '2023-07-24-065812', 'App\\Database\\Migrations\\Attachment', 'default', 'App', 1690221432, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `priorities`
+--
+
+CREATE TABLE `priorities` (
+  `id` varchar(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `slug` varchar(50) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- RELACIONES PARA LA TABLA `priorities`:
+--
+
+--
+-- Truncar tablas antes de insertar `priorities`
+--
+
+TRUNCATE TABLE `priorities`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `status`
+--
+
+CREATE TABLE `status` (
+  `id` varchar(5) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- RELACIONES PARA LA TABLA `status`:
+--
+
+--
+-- Truncar tablas antes de insertar `status`
+--
+
+TRUNCATE TABLE `status`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tickets`
+--
+
+CREATE TABLE `tickets` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `usuario` int(11) UNSIGNED NOT NULL,
+  `category` int(11) UNSIGNED NOT NULL,
+  `priority` varchar(5) NOT NULL,
+  `title` varchar(150) NOT NULL,
+  `slug` varchar(150) NOT NULL,
+  `description` text NOT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `status` varchar(5) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `email` varchar(80) DEFAULT NULL,
+  `remote` varchar(50) DEFAULT NULL,
+  `dateMeeting` datetime DEFAULT NULL,
+  `hourMeeting` time DEFAULT NULL,
+  `ok` tinyint(1) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- RELACIONES PARA LA TABLA `tickets`:
+--   `category`
+--       `categories` -> `id`
+--   `priority`
+--       `priorities` -> `id`
+--   `status`
+--       `status` -> `id`
+--   `usuario`
+--       `users` -> `id`
+--
+
+--
+-- Truncar tablas antes de insertar `tickets`
+--
+
+TRUNCATE TABLE `tickets`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(80) NOT NULL,
+  `apaterno` varchar(80) NOT NULL,
+  `amaterno` varchar(80) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone_no` varchar(20) NOT NULL,
+  `role` varchar(20) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `area` int(12) UNSIGNED NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- RELACIONES PARA LA TABLA `users`:
+--   `area`
+--       `areas` -> `id`
+--
+
+--
+-- Truncar tablas antes de insertar `users`
+--
+
+TRUNCATE TABLE `users`;
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `areas`
+--
+ALTER TABLE `areas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `attachments`
+--
+ALTER TABLE `attachments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `bitacoras`
+--
+ALTER TABLE `bitacoras`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `bitacoras_ticket_foreign` (`ticket`);
+
+--
+-- Indices de la tabla `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
+
+--
+-- Indices de la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `mensajes_ticket_id_foreign` (`ticket_id`),
+  ADD KEY `mensajes_usuario_id_foreign` (`usuario_id`);
+
+--
+-- Indices de la tabla `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `priorities`
+--
+ALTER TABLE `priorities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `status`
+--
+ALTER TABLE `status`
+  ADD UNIQUE KEY `name` (`name`),
+  ADD KEY `id` (`id`);
+
+--
+-- Indices de la tabla `tickets`
+--
+ALTER TABLE `tickets`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tickets_usuario_foreign` (`usuario`),
+  ADD KEY `tickets_category_foreign` (`category`),
+  ADD KEY `tickets_priority_foreign` (`priority`),
+  ADD KEY `tickets_status_foreign` (`status`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `users_area_foreign` (`area`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `areas`
+--
+ALTER TABLE `areas`
+  MODIFY `id` int(12) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `attachments`
+--
+ALTER TABLE `attachments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `bitacoras`
+--
+ALTER TABLE `bitacoras`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(12) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT de la tabla `tickets`
+--
+ALTER TABLE `tickets`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `bitacoras`
+--
+ALTER TABLE `bitacoras`
+  ADD CONSTRAINT `bitacoras_ticket_foreign` FOREIGN KEY (`ticket`) REFERENCES `tickets` (`id`);
+
+--
+-- Filtros para la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  ADD CONSTRAINT `mensajes_ticket_id_foreign` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `mensajes_usuario_id_foreign` FOREIGN KEY (`usuario_id`) REFERENCES `users` (`id`);
+
+--
+-- Filtros para la tabla `tickets`
+--
+ALTER TABLE `tickets`
+  ADD CONSTRAINT `tickets_category_foreign` FOREIGN KEY (`category`) REFERENCES `categories` (`id`),
+  ADD CONSTRAINT `tickets_priority_foreign` FOREIGN KEY (`priority`) REFERENCES `priorities` (`id`),
+  ADD CONSTRAINT `tickets_status_foreign` FOREIGN KEY (`status`) REFERENCES `status` (`id`),
+  ADD CONSTRAINT `tickets_usuario_foreign` FOREIGN KEY (`usuario`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_area_foreign` FOREIGN KEY (`area`) REFERENCES `areas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

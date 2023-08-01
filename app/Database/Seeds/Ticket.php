@@ -26,7 +26,7 @@ class Ticket extends Seeder
                 'title'         => $faker->sentence(),
                 'slug'          => $faker->sentence(),
                 'description'   => $faker->text(),
-                'evidence'      => $faker->mimeType(),
+                // 'evidence'      => $faker->mimeType(),
                 'url'           => $faker->url(),
                 'status'        => $faker->randomElement(['s01', 's02', 's03', 's04', 's05', 's06', 's07', 's08']),
                 'phone'         => $faker->tollFreePhoneNumber(),

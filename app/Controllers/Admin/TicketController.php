@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin;
 
+use App\Models\AdjuntosMensajeModel;
 use App\Models\Ticket;
 use App\Models\UserModel;
 use CodeIgniter\RESTful\ResourceController;
@@ -11,6 +12,8 @@ use App\Models\Prioridad;
 use App\Models\Categoria;
 use CodeIgniter\Files\File;
 use App\Models\MensajeModel;
+use App\Models\Attachment;
+use CodeIgniter\I18n\DateTime;
 
 // Usar dompdf para la generación de PDF
 use Dompdf\Dompdf;
@@ -20,6 +23,7 @@ class TicketController extends ResourceController
 
     private $ticket;
     private $area;
+    private $attachmentModel;
 
     public function __construct()
     {
@@ -30,6 +34,7 @@ class TicketController extends ResourceController
         $this->ticket = new Ticket;
         $this->mensaje = new MensajeModel;
         $this->areas = new Area();
+        $this->attachmentModel = new Attachment();
         $this->session = \Config\Services::session();
     }
 
@@ -37,6 +42,8 @@ class TicketController extends ResourceController
 
     public function index()
     {
+        helper('date');
+
         $db = \Config\Database::connect();
         $total = $db->table('tickets')->countAll();
         $tickets2 = model('Ticket');
@@ -75,15 +82,52 @@ class TicketController extends ResourceController
             'title'     => 'Tickets de soporte',
             'total'     => $total,
             'status'    => $status,
-            // // 'tickets'   => $tickets->findAll(),
-            // 'tickets'   => $tickets->orderBy('status', 'ASC')->findAll()
             'tickets2'   => $tickets2->orderBy('id', 'desc')->findAll(),
             'usuario'   => $usuario,
             'tickets' => $tickets,
-            // 'numRespuestas' => $numResp
         ];
 
         return view('admin/tickets/index', $data);
+    }
+
+
+    public function lista()
+    {
+        helper('date');
+
+        $db = \Config\Database::connect();
+        $total = $db->table('tickets')->countAll();
+        $tickets2 = model('Ticket');
+
+        $builder = $db->table('status');
+        $builder->join('tickets', 'tickets.status=status.id');
+        $status = $builder->get();
+        // $status = $builder->where('status.id', 'ASC')->get();
+
+        $builder2 = $db->table('areas')->select('areas.name');
+        $builder2->join('users', 'users.area = areas.id');
+        $builder2->join('tickets', 'users.id = tickets.usuario');
+        $usuario = $builder2->get();
+
+        $this->session = \Config\Services::session();
+
+        $builder3 = $this->db->table('tickets as t');
+        $builder3->select('t.*, user.name, user.apaterno, user.amaterno, a.name as nombrearea, status.name as estado');
+        $builder3->join('users as user', 't.usuario = user.id');
+        $builder3->join('areas as a', 'user.area = a.id');
+        $builder3->join('status', 't.status = status.id');
+        $tickets = $builder3->get()->getResult();
+
+        $data = [
+            'title'     => 'Tickets de soporte',
+            'total'     => $total,
+            'status'    => $status,
+            'tickets2'   => $tickets2->orderBy('id', 'desc')->findAll(),
+            'usuario'   => $usuario,
+            'tickets' => $tickets,
+        ];
+
+        return view('admin/tickets/lista', $data);
     }
 
     
@@ -91,27 +135,64 @@ class TicketController extends ResourceController
 
     public function show($id = null)
     {
+
+
         $ticketModel = new Ticket();
         $mensajeModel = new MensajeModel();
+        $attachmentModel = new Attachment();
+        $adjuntosMensaje = new AdjuntosMensajeModel();
 
 
         $db = \Config\Database::connect();
 
-        $builder = $db->table('users')->select('users.name');
+        $builder = $db->table('users')->select('*');
         $builder->join('mensajes', 'mensajes.usuario_id = users.id');
         $usuario = $builder->get();
 
+        /*
         $builder3 = $this->db->table('mensajes as m');
         $builder3->select('m.*, user.name, user.apaterno, user.amaterno');
-        $builder3->join('users as user', 'm.usuario_id = user.id');
+        $builder3->join('users as user', 'm.usuario_id = ', $this->ticket->id);
         $builder3->orderBy('m.created_at', 'DESC');
-        $mensajes = $builder3->get()->getResult();
+        $mensajes0 = $builder3->get()->getResult();
+        */
 
+        $builder3 = $this->db->table('mensajes as m');
+        $builder3->select('m.*, user.name, user.apaterno, user.amaterno');
+        $builder3->join('tickets as t', 'm.ticket_id = t.id');
+        $builder3->join('users as user', 'm.usuario_id = user.id');
+        $builder3->where('m.ticket_id', 't.id');
+        $builder3->orderBy('m.created_at', 'asc');
+        $mensajes_anterior = $builder3->get()->getResult();
+
+
+        $builder5 = $this->db->table('mensajes as m');
+        $builder5->select('m.*');
+        $builder5->join('tickets as t', 'm.ticket_id = t.id');
+        $builder5->orderBy('m.created_at', 'DESC');
+        $mensajes_anterior2 = $builder5->get()->getResult();
+
+
+        $builder6 = $this->db->table('adjuntos_mensaje as am');
+        $builder6->select('m.*, am.file_name');
+        $builder6->join('mensajes as m', 'am.mensaje_id = m.id');
+        // $builder6->join('tickets as t', 'm.ticket_id = t.id');
+        // $builder6->orderBy('am.file_name', 'DESC');
+        $adjuntosMensaje = $builder6->get()->getResult();
+
+        $data['usuario'] = $usuario;
+        $data['ticketId'] = $id;
         $data['ticket'] = $ticketModel->find($id);
-        // $data['mensajes'] = $mensajeModel->where('ticket_id', $id)->orderBy('created_at', 'DESC')->findAll();
-        $data['mensajes'] = $mensajes;
+        $data['mensajes'] = $mensajeModel->where('ticket_id', $id)->orderBy('created_at', 'asc')->findAll();
+        // $data['mensajes'] = $mensajes;
+        $data['attachments'] = $attachmentModel->where('ticket_id', $id)->findAll();
+
+        // $data['adjuntosMensaje'] = $adjuntosMensaje->join('mensajes', 'mensajes.id = adjuntos_mensaje.mensaje_id')->findAll();
+        $data['adjuntosMensaje'] = $adjuntosMensaje;
         // $data['usuario'] = $usuario;
         $data['title'] = "Ver ticket";
+
+        // dd($data);
 
         return view('admin/tickets/show', $data);
     }
@@ -143,60 +224,36 @@ class TicketController extends ResourceController
         return view('admin/tickets/create', $data);
     }
 
-    /**
-     * Create a new resource object, from "posted" parameters
-     *
-     * @return mixed
-     */
+
+
+    
     public function create()
     {
 
         helper(['form']);
+        
+        $ticketModel = new Ticket();
+        $attachmentModel = new Attachment();
+        $this->session = \Config\Services::session();
 
+        /*
         $rules = [
-            // 'usuario'       => 'required',
             'category'      => 'required',
             'priority'      => 'required',
             'title'         => 'required|min_length[5]|max_length[150]',
             'description'   => 'required|min_length[5]',
-            // 'status'        => 'required',
-            // 'email'         => 'required'
         ];
 
         if ($this->validate($rules)) {
-            $ticketModel = new Ticket();
-
-            $this->session = \Config\Services::session();
-
-
-            $input = $this->validate([
-                'uploaded[evidence]',
-                'max_size[file,10240]',
-            ]);
-
-            if ($input) {
-            
-
-
-            // 'usuario', 'category', 'priority', 'title',  'slug', 'description', 'evidence', 'url', 'status', 'phone', 'email', 'remote', 'dateMeeting', 'hourMeeting', 'ok'
-
-            $adjunto = $this->request->getFile('evidence');
-            $nombreAdjunto = $adjunto->getRandomName();
-            $archivo = $adjunto->move(ROOTPATH . 'public/uploads/tickets', $nombreAdjunto);
-            
-
-
-            
-                $data = [
-
-                // 'usuario'       => $this->request->getPost('usuario'),
+        */
+        
+            $data = [
                 'usuario'       => $this->session->id,
                 'category'      => $this->request->getPost('category'),
                 'priority'      => $this->request->getPost('priority'),
                 'title'         => $this->request->getPost('title'),
                 'description'   => $this->request->getPost('description'),
                 'slug'          => url_title($this->request->getPost('description'), '-', true),
-                'evidence'      => $archivo,
                 'url'           => $this->request->getPost('url'),
                 'status'        => 's01',
                 'phone'         => $this->request->getPost('phone'),
@@ -206,37 +263,34 @@ class TicketController extends ResourceController
                 'hourMeeting'   => $this->request->getPost('hourMeeting'),
                 'ok'            => true
             ];
-            $ticketModel->save($data);
-            return redirect()->to('admin/tickets');
-            } else {
 
-                 $data = [
+            // $ticketModel->save($data);
+            // return redirect()->to('admin/tickets');
 
-                // 'usuario'       => $this->request->getPost('usuario'),
-                'usuario'       => $this->session->id,
-                'category'      => $this->request->getPost('category'),
-                'priority'      => $this->request->getPost('priority'),
-                'title'         => $this->request->getPost('title'),
-                'description'   => $this->request->getPost('description'),
-                'slug'          => url_title($this->request->getPost('description'), '-', true),
-                // 'evidence'      => $archivo,
-                'url'           => $this->request->getPost('url'),
-                'status'        => 's01',
-                'phone'         => $this->request->getPost('phone'),
-                'email'         => $this->request->getPost('email'),
-                'remote'        => $this->request->getPost('remote'),
-                'dateMeeting'   => $this->request->getPost('dateMeeting'),
-                'hourMeeting'   => $this->request->getPost('hourMeeting'),
-                'ok'            => true
-            ];
-            $ticketModel->save($data);
-            return redirect()->to('admin/tickets');
 
+            $ticketId = $ticketModel->insert($data);
+
+            $files = $this->request->getFiles();
+
+            foreach ($files['attachments'] as $attachment) {
+                if ($attachment->isValid() && !$attachment->hasMoved()) {
+                    $newName = $attachment->getRandomName();
+                    $attachment->move(ROOTPATH . 'public/uploads', $newName);
+
+                    $attachmentModel->insert([
+                        'ticket_id' => $ticketId,
+                        'file_name' => $newName,
+                    ]);
+                }
             }
 
+            return redirect()->to('/admin/tickets')->with('success', 'Registro exitoso');
+        
+    
 
-            
+            /*
         } else {
+
             $categories = model(Categoria::class);
             $priorities = model(Prioridad::class);
             $status     = model(Status::class);
@@ -247,13 +301,80 @@ class TicketController extends ResourceController
                 'categories'     => $categories->findAll(),
                 'priorities'    => $priorities->findAll()
             ];
+            
             echo view('admin/tickets/create', $data);
-            // return view('usuarios/create', $data);
         }
+        */
 
     }
+    
 
+/*
+    public function create()
+    {
+        $ticketModel = new Ticket();
+        $attachmentModel = new Attachment();
+        $this->session = \Config\Services::session();
+        
+        helper(['form']);
 
+        $rules = [
+            'category'      => 'required',
+            'priority'      => 'required',
+            'title'         => 'required|min_length[5]|max_length[150]',
+            'description'   => 'required|min_length[5]'
+        ];
+
+        if ($this->validate($rules)) {
+
+            $categories = model(Categoria::class);
+            $priorities = model(Prioridad::class);
+            $status     = model(Status::class);
+
+            $data = [
+                'validation' => $this->validator,
+                'title'      => 'Nuevo registro',
+                'categories'     => $categories->findAll(),
+                'priorities'    => $priorities->findAll()
+            ];
+            
+            $data = [
+                'usuario'       => $this->session->id,
+                'category'      => $this->request->getPost('category'),
+                'priority'      => $this->request->getPost('priority'),
+                'title'         => $this->request->getPost('title'),
+                'description'   => $this->request->getPost('description'),
+                'slug'          => url_title($this->request->getPost('description'), '-', true),
+                'url'           => $this->request->getPost('url'),
+                'status'        => 's01',
+                'phone'         => $this->request->getPost('phone'),
+                'email'         => $this->request->getPost('email'),
+                'remote'        => $this->request->getPost('remote'),
+                'dateMeeting'   => $this->request->getPost('dateMeeting'),
+                'hourMeeting'   => $this->request->getPost('hourMeeting'),
+                'ok'            => true
+            ];
+
+            $ticketId = $ticketModel->insert($data);
+
+            $files = $this->request->getFiles();
+
+            foreach ($files['attachments'] as $attachment) {
+                if ($attachment->isValid() && !$attachment->hasMoved()) {
+                    $newName = $attachment->getRandomName();
+                    $attachment->move(ROOTPATH . 'public/uploads/tickets', $newName);
+
+                    $attachmentModel->insert([
+                        'ticket_id' => $ticketId,
+                        'file_name' => $newName,
+                    ]);
+                }
+            }
+
+            return redirect()->to('/admin/tickets');
+        }
+    }
+*/
 
 
     /**
@@ -571,7 +692,9 @@ class TicketController extends ResourceController
 
     public function guardarMensaje()
     {
+        helper('form');
         $mensajeModel = new MensajeModel();
+        $adjuntosMensajeModel = new AdjuntosMensajeModel();
 
         $this->session = \Config\Services::session();
 
@@ -582,6 +705,22 @@ class TicketController extends ResourceController
         ];
 
         $mensajeModel->insert($data);
+        // $mensajeId = $mensajeModel->insert($data);
+/*
+        $files = $this->request->getFiles();
+
+        foreach ($files['attachments'] as $attachment) {
+            if ($attachment->isValid() && !$attachment->hasMoved()) {
+                $newName = $attachment->getRandomName();
+                $attachment->move(ROOTPATH . 'public/uploads', $newName);
+
+                $adjuntosMensajeModel->insert([
+                    'mensaje_id' => $mensajeId,
+                    'file_name' => $newName,
+                ]);
+            }
+        }
+*/
         return redirect()->to('admin/tickets/' . $data['ticket_id']);
     }
 

@@ -1,4 +1,4 @@
-<?= $this->extend('admin/template/admin_template'); ?>
+<?= $this->extend('usuario/template/admin_template'); ?>
 
 <?= $this->section('content') ?>
 

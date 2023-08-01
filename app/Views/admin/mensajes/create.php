@@ -8,20 +8,30 @@ echo '<a class="button is-outlined is-light" href="' . $_SERVER['HTTP_REFERER'] 
 
     <h1>Añadir respuesta</h1>
 
-    <form action="<?= base_url('admin/tickets/mensajes'); ?>" method="post">
-    <input type="hidden" name="ticket_id" value="<?= $ticketId; ?>">
+    <form action="<?= base_url('admin/tickets/mensajes'); ?>" method="post" enctype="multipart/form-data">
 
-    <div class="form-group col-12">
+        <input type="hidden" name="ticket_id" value="<?= $ticketId; ?>">
+
+        <div class="form-group col-12">
             <label for="content">Contenido</label>
             <textarea class="form-control" name="mensaje" id="content" required></textarea>
-    </div>
+        </div>
 
-    <div>
-        <button class="btn btn-danger float-right">Cancelar</button>
-        <button class="btn btn-primary float-right" type="submit">Guardar</button>
-    </div>
-</form>
+        <!--
+        <div class="row">
+            <div class="form-group col">
+                
+                <label for="attachments">Archivos adjuntos:</label>
+                <input type="file" name="attachments[]" id="attachments" multiple>
+            </div>
+        </div>
+-->
 
+        <div>
+            <button class="btn btn-danger float-right">Cancelar</button>
+            <button class="btn btn-primary float-right" type="submit">Guardar</button>
+        </div>
+    </form>
 
 
 <?= $this->endSection(); ?>
