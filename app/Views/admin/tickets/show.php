@@ -14,6 +14,8 @@ echo '<a class="button is-outlined is-light" href="' . $_SERVER['HTTP_REFERER'] 
                     <h3 class="card-title"><?= esc($title); ?></h3>
                     <a class="btn btn-sm btn-secondary float-right"
                         href="<?= site_url('admin/tickets'); ?>">Regresar</a>
+                        <a class="btn btn-sm btn-secondary float-right"
+                        href="<?= site_url('admin/tickets/enviarEmail'); ?>">Email</a>
                     <form class="display-none" method="post" action="<?= base_url('/admin/tickets/' . $ticket['id']) ?>"
                         id="ticketDeleteForm<?= $ticket['id'] ?>">
                         <input type="hidden" name="_method" value="DELETE" />
