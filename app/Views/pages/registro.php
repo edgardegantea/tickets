@@ -75,7 +75,7 @@
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
 </head>
-<body class="d-flex h-100 text-center text-bg-dark">
+<body class="d-flex h-100 text-bg-dark">
 
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
@@ -153,7 +153,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="exampleSelectBorderWidth2">Área de adscripción:</label>
-                                <select name="area" class="form-control"
+                                <select name="area" class="form-select"
                                         id="exampleSelectBorderWidth2">
                                     <?php foreach ($areas as $area): ?>
                                         <option value="<?= $area['id'] ?>"><?= $area['name'] ?></option>
@@ -164,18 +164,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="exampleSelectBorderWidth2">Perfil:</label>
-                                <select name="role" class="form-control"
-                                        id="exampleSelectBorderWidth2">
-                                    <option value="admin">Administrador</option>
-                                    <option value="usuario">Usuario</option>
-                                </select>
+                                <input class="form-control" type="text" disabled name="" value="Usuario">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="exampleSelectBorderWidth2">Foto de perfil:</label>
-                                <input type="file" name="image" accept="image/*" id="" class="">
+                                <label for="exampleSelectBorderWidth2">Foto de perfil (OPCIONAL):</label>
+                                <input class="form-file" type="file" name="image" accept="image/*" id="" class="">
                             </div>
                         </div>
                     </div>

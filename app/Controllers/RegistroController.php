@@ -30,7 +30,7 @@ class RegistroController extends BaseController
             'email' => $this->request->getPost('email'),
             'phone_no' => $this->request->getPost('phone_no'),
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-            'role' => $this->request->getPost('role'),
+            'role' => 'usuario',
             'area' => $this->request->getPost('area')
         ];
 

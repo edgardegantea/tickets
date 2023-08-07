@@ -14,7 +14,7 @@ echo '<a class="button is-outlined is-light" href="' . $_SERVER['HTTP_REFERER'] 
                     <h3 class="card-title"><?= esc($title); ?></h3>
                     <a class="btn btn-sm btn-secondary float-right"
                         href="<?= site_url('admin/tickets'); ?>">Regresar</a>
-                        <a class="btn btn-sm btn-secondary float-right"
+                    <a class="btn btn-sm btn-secondary float-right"
                         href="<?= site_url('admin/tickets/enviarEmail'); ?>">Email</a>
                     <form class="display-none" method="post" action="<?= base_url('/admin/tickets/' . $ticket['id']) ?>"
                         id="ticketDeleteForm<?= $ticket['id'] ?>">
@@ -77,12 +77,12 @@ echo '<a class="button is-outlined is-light" href="' . $_SERVER['HTTP_REFERER'] 
                     <?php else : ?>
                     <?php foreach ($mensajes as $mensaje) : ?>
 
-                    
+
                     <?php if (session()->get('id') != $mensaje['usuario_id']) : ?>
                     <div class="direct-chat-messages">
 
 
-                    <div class="direct-chat-msg">
+                        <div class="direct-chat-msg">
 
                             <div class="direct-chat-infos clearfix">
                                 <span class="direct-chat-name"></span>
@@ -95,7 +95,8 @@ echo '<a class="button is-outlined is-light" href="' . $_SERVER['HTTP_REFERER'] 
                             <div class="direct-chat-text float-right">
 
                                 <p class=""><?= $mensaje['created_at']; ?> ::
-                                    <strong><?= $mensaje['mensaje'] ?></strong></p>
+                                    <strong><?= $mensaje['mensaje'] ?></strong>
+                                </p>
 
                             </div>
                         </div>
@@ -112,7 +113,8 @@ echo '<a class="button is-outlined is-light" href="' . $_SERVER['HTTP_REFERER'] 
                                     -->
                             <div class="direct-chat-text float-text float-right">
                                 <p class=""><?= $mensaje['created_at']; ?> ::
-                                    <strong><?= $mensaje['mensaje'] ?></strong></p>
+                                    <strong><?= $mensaje['mensaje'] ?></strong>
+                                </p>
                             </div>
                         </div>
 
@@ -141,47 +143,47 @@ echo '<a class="button is-outlined is-light" href="' . $_SERVER['HTTP_REFERER'] 
                 <!--/.direct-chat -->
 
             </div>
-                        </div>
-
-
-            <div class="col-md-4">
-
-
-
-                <div class="card">
-
-                    <div class="card-header bg-dark">
-                        <h3 class="card-title">Información del ticket</h3>
-                        
-                    </div>
-
-
-                    <div class="card-body">
-                        <div class="">
-                            Fecha: <strong><?= $ticket['created_at'] ?></strong>
-                        </div>
-
-                        <div class="">
-                            Usuario: <strong><?= $ticket['id'] ?></strong>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
 
 
+        <div class="col-md-4">
+
+
+
+            <div class="card">
+
+                <div class="card-header bg-dark">
+                    <h3 class="card-title">Información del ticket</h3>
+
+                </div>
+
+
+                <div class="card-body">
+                    <div class="">
+                        Fecha: <strong><?= $ticket['created_at'] ?></strong>
+                    </div>
+
+                    <div class="">
+                        Usuario: <strong><?= $ticket['id'] ?></strong>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 
-    <script>
-    function deleteTicket(formId) {
-        var confirm = window.confirm('Esta operación no se puede revertir. ¿Desea continuar?');
-        if (confirm == true) {
-            document.getElementById(formId).submit();
-        }
+</div>
+
+
+<script>
+function deleteTicket(formId) {
+    var confirm = window.confirm('Esta operación no se puede revertir. ¿Desea continuar?');
+    if (confirm == true) {
+        document.getElementById(formId).submit();
     }
-    </script>
+}
+</script>
 
 
-    <?= $this->endSection(); ?>
+<?= $this->endSection(); ?>

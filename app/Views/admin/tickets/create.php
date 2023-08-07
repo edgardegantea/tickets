@@ -92,8 +92,11 @@
 
 
                 <div class="card-footer">
-                    <input class="btn btn-default" type="reset">
-                    <input class="btn btn-primary float-right" type="submit" name="" value="Enviar">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="btn btn-primary">Cancelar</button>
+                      <button type="button" class="btn btn-primary">Guardar borrador</button>
+                      <button type="button" class="btn btn-primary">Enviar</button>
+                    </div>
                 </div>
 
 
