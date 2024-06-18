@@ -10,7 +10,7 @@
             <a href="<?= base_url('admin/tickets/new') ?>" class="btn btn-primary float-right">Nuevo</a>
             <h3 class="card-title"><?= esc($title); ?></h3>
         <a href="<?= base_url('admin/tickets') ?>" class="btn btn-light mr-2 float-right">Vista de tabla</a>
-            <h3 class="card-title"><?= esc($title); ?></h3>
+            <!-- <h3 class="card-title"><?= esc($title); ?></h3> -->
             
         </div>
 
@@ -29,6 +29,7 @@
                             <?= "\t" . $ticket->created_at ?>
                     </div>
                             <div class="col-md-9">
+                                <span class="badge bg-dark"><?= $ticket->estado; ?></span>
                                 <strong><a href="<?= base_url('/admin/tickets/'.$ticket->id) ?>" class="text" title="Ver"><?= esc($ticket->title) ?></a></strong>
                             </p>
                     </div>

@@ -39,24 +39,24 @@ echo '<a class="button is-outlined is-light" href="' . $_SERVER['HTTP_REFERER'] 
                     </div>
 
 
-                    <div class="mt-5">
+                   <div class="mt-5">
                         <?php if (!empty($attachments)): ?>
-                        <h2>Archivos Adjuntos</h2>
-                        <div class="row">
-                            <?php foreach ($attachments as $attachment): ?>
-                            <div class="card col-md-3 mr-5">
-                                <div class="card-body">
-                                    <img src="<?= base_url('uploads/' . $attachment['file_name']); ?>"
-                                        alt="<?= $attachment['file_name']; ?>" style="max-width: 200px;">
-                                </div>
-                                <div class="card-footer">
-                                    <a class="btn btn-sm btn-dark"
-                                        href="<?= base_url('uploads/' . $attachment['file_name']); ?>"
-                                        target="_blank">Descargar</a>
-                                </div>
+                            <h2>Archivos Adjuntos</h2>
+                            <div class="">
+                                <?php foreach ($attachments as $attachment): ?>
+                                    <ul style="list-style-type: none">
+                                        <li class="mb-1">
+                                            <a class="btn btn-sm btn-light"
+                                               href="<?= base_url('uploads/' . $attachment['file_name']); ?>"
+                                               target="_blank"><?php if ($attachment['file_name']): ?>
+                                                    <p><?= $attachment['file_name'] ?></p>
+                                                <?php endif; ?></a>
+
+
+                                        </li>
+                                    </ul>
+                                <?php endforeach; ?>
                             </div>
-                            <?php endforeach; ?>
-                        </div>
                         <?php endif; ?>
                     </div>
 
@@ -64,84 +64,65 @@ echo '<a class="button is-outlined is-light" href="' . $_SERVER['HTTP_REFERER'] 
             </div>
 
         </div>
+
 
 
         <div class="col-md-4">
-            <div class="card">
-
-                <div class="card-header bg-dark">
+            <div class="card card-dark direct-chat direct-chat-primary">
+                <div class="card-header">
                     <h3 class="card-title">Mensajes</h3>
-                    <a class="btn btn-sm btn-primary float-right"
-                        href="<?= base_url('usuario/tickets/' . $ticket['id'] . '/agregarMensaje'); ?>">Responder</a>
                 </div>
 
-
                 <div class="card-body">
-
-                    <!--<div class="d-flex gap-2 justify-content-center pb-4">
-
-                        <form action="<?php /*= base_url('admin/tickets/mensajes'); */ ?>" method="post">
-                            <input type="hidden" name="ticket_id" value="<?php /*= $ticket['id']; */ ?>">
-                            <textarea class="form-control" name="mensaje" id="" cols="30" rows="3"></textarea>
-                            <div class="ml-3 d-flex gap-2 float-right">
-                                <button class="btn btn-primary float-right" type="submit">Guardar</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="section"></div>-->
-
-
-                    <div class="mt-5">
-
+                    <div class="direct-chat-messages">
                         <?php if (empty($mensajes)) : ?>
-                        <p>No hay mensajes</p>
+                            <p>No hay mensajes</p>
                         <?php else : ?>
-                        <ul>
-                            <?php foreach ($mensajes
-
-                            as $mensaje) : ?>
-
-                            <?php if (session()->get('id') == $mensaje['usuario_id']) : ?>
-                            <div class="card bg-dark">
-                                <div class="card-body" style="text-align: end;">
-                                    <p class="text-bold"><?= $mensaje['mensaje']; ?></p>
-                                    <p class="text-sm float-right mb-0">(<?= $mensaje['created_at']; ?>)</p>
-                                </div>
-                            </div>
-
-                            <?php else: ?>
-
-                            <div class="card">
-
-                                <?php if (!empty($adjuntosMensaje)): ?>
-                                <?php foreach ($adjuntosMensaje as $am): ?>
-                                <?= $am->mensaje ?>
-                                <?php endforeach; ?>
+                            <?php foreach ($mensajes as $mensaje) : ?>
+                                <?php if (session()->get('id') != $mensaje['usuario_id']) : ?>
+                                    <div class="direct-chat-msg">
+                                        <div class="direct-chat-text float-left">
+                                            <p><?= $mensaje['created_at']; ?> ::
+                                                <strong><?= $mensaje['mensaje'] ?></strong>
+                                            </p>
+                                        </div>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="direct-chat-msg right">
+                                        <div class="direct-chat-text bg-primary float-right">
+                                            <p><?= $mensaje['created_at']; ?> ::
+                                                <strong><?= $mensaje['mensaje'] ?></strong>
+                                            </p>
+                                        </div>
+                                    </div>
                                 <?php endif; ?>
-
-
-                                <div class="card-body" style="text-align: justify;">
-                                    <p class="text-bold"><?= $mensaje['mensaje']; ?></p>
-                                    <p class="text-sm mb-1">(<?= $mensaje['created_at']; ?>)</p>
-
-                                    <br>
-
-                                </div>
-
-
-                            </div>
-
-                            <?php endif; ?>
                             <?php endforeach; ?>
-                        </ul>
                         <?php endif; ?>
                     </div>
                 </div>
-            </div>
 
+                <div class="card-footer">
+                    <form action="<?= base_url('usuario/tickets/mensajes'); ?>" method="post">
+                        <div class="input-group">
+                            <input type="hidden" name="ticket_id" value="<?= $ticket['id']; ?>">
+                            <input type="text" name="mensaje" placeholder="Escribe un mensaje" class="form-control">
+                            <span class="input-group-append">
+                        <input class="btn btn-dark" type="submit" value="Enviar">
+                    </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
+
+
+
     </div>
+</div>
+
+
+
+
 
 
 </div>
@@ -155,6 +136,12 @@ function deleteTicket(formId) {
     }
 }
 </script>
+
+
+
+
+
+
 
 
 <?= $this->endSection(); ?>

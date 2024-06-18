@@ -19,6 +19,15 @@
 
 
     <style>
+
+        .btn {
+            border-radius: 0px;
+        }
+
+        input select text-area {
+            border-radius: 0px;
+        }
+
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -79,18 +88,27 @@
 <main class="form-signin w-100 m-auto">
 
 
-    <?php if (isset($validation)) : ?>
-        <div class="">
-            <div class="alert alert-danger" role="alert">
-                <p><?= $validation->listErrors() ?></p>
-            </div>
+    <?php if (session()->getFlashdata('error')): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('error') ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php endif; ?>
+
+
+    <?php if (session()->getFlashdata('success')): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('success') ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
     <?php endif; ?>
 
 
     <form class="" action="<?= base_url('login'); ?>" method="post">
-
-        <!-- <img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">-->
 
         <p class="text-uppercase text-muted" style=" font-size: 12px;">Instituto Tecnológico Superior de Teziutlán</p>
         <p class="badge text-uppercase text-muted" style="color: navy;">Ingeniería Informática</p>
@@ -109,15 +127,22 @@
             <label for="floatingPassword">Contraseña</label>
         </div>
 
-        <!--
-<div class="checkbox mb-3">
-  <label>
-    <input type="checkbox" value="remember-me"> Recordarme
-  </label>
-</div>
--->
-
         <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
+
+        <br><br>
+        <a class="btn btn-danger" href="<?= base_url('/password/request-reset'); ?>">Olvidé mi contraseña</a>
+
+        <?php
+        $numero_whatsapp = '+522312051120';
+        ?>
+
+        <div class="mt-5 text-muted">
+            En caso de presentar complicaciones para iniciar sesión, póngase en contacto con el desarrollador del sistema
+            <br>
+            <a target="_blank" class="btn btn-info" href="https://api.whatsapp.com/send?phone=<?php echo $numero_whatsapp; ?>&text=STickets-ITST" class="whatsapp-button">
+                <i class="fab fa-whatsapp whatsapp-icon"></i> CONTACTAR
+            </a>
+        </div>
 
     </form>
 
@@ -128,6 +153,22 @@
 </main>
 
 
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+        setTimeout(function() {
+            $(".alert").alert('close');
+        }, 5000);
+    });
+</script>
 </body>
 
 </html>

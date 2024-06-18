@@ -88,7 +88,7 @@
                             <td class="d-flex">
                                 <a href="<?= base_url('/admin/usuarios/'.$usuario->id); ?>" class="btn btn-sm btn-light mx-1" title="Ver"><span class="fas fa-eye"><span></a>
                                 <a href="<?= base_url('/admin/usuarios/'.$usuario->id.'/edit'); ?>" class="btn btn-sm btn-light mx-1"><span class="fas fa-edit"><span></a>
-                                <a href="<?= site_url('/admin/usuarios/delete/' . $usuario->id) ?>" onclick="return confirm('¿Estás seguro de eliminar este registro?')">Eliminar</a>
+                                <a href="<?= site_url('/admin/usuarios/delete/' . $usuario->id) ?>" class="btn btn-sm btn-light mx-1" onclick="return confirm('¿Estás seguro de eliminar este registro?')"><span class="fas fa-trash text-danger"></span></a>
                                 <!--
                                 <form class="display-none" method="post" action="<?= base_url('admin/usuarios/'.$usuario->id); ?>" id="postDeleteForm<?=$usuario->id?>">
                                     <input type="hidden" name="_method" value="DELETE"/>

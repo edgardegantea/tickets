@@ -56,12 +56,12 @@ class TicketController extends ResourceController
         $builder3->join('users as user', 't.usuario = user.id');
         $builder3->join('areas as a', 'user.area = a.id');
         $builder3->join('status', 't.status = status.id');
-       
+
         $tickets = $builder3->where('usuario', $this->session->id)->get()->getResult();
 
         $data = [
-            'title'     => 'Tickets de soporte',
-            'total'     => $total,
+            'title' => 'Tickets de soporte',
+            'total' => $total,
             'tickets' => $tickets
         ];
 
@@ -162,8 +162,6 @@ class TicketController extends ResourceController
         */
 
 
-
-
         $ticketModel = new Ticket();
         $mensajeModel = new MensajeModel();
         $attachmentModel = new Attachment();
@@ -209,7 +207,7 @@ class TicketController extends ResourceController
 
 
         $data['ticket'] = $ticketModel->find($id);
-        $data['mensajes'] = $mensajeModel->where('ticket_id', $id)->orderBy('created_at', 'DESC')->findAll();
+        $data['mensajes'] = $mensajeModel->where('ticket_id', $id)->orderBy('created_at', 'ASC')->findAll();
         // $data['mensajes'] = $mensajes;
         $data['attachments'] = $attachmentModel->where('ticket_id', $id)->findAll();
 
@@ -222,9 +220,6 @@ class TicketController extends ResourceController
 
         return view('usuario/tickets/show', $data);
     }
-
-
-
 
 
     /**
@@ -241,11 +236,11 @@ class TicketController extends ResourceController
         // $areas = model('Area');
 
         $data = [
-            'title'         => 'Nuevo ticket de soporte',
-            'status'        => $status->findAll(),
-            'priorities'    => $priorities->findAll(),
-            'categories'    => $categories->findAll(),
-            'usuarios'      => $usuarios,
+            'title' => 'Nuevo ticket de soporte',
+            'status' => $status->findAll(),
+            'priorities' => $priorities->findAll(),
+            'categories' => $categories->findAll(),
+            'usuarios' => $usuarios,
             // 'areas'         => $areas->findAll()
         ];
         return view('usuario/tickets/create', $data);
@@ -260,52 +255,56 @@ class TicketController extends ResourceController
     {
 
         helper(['form']);
-        
+
         $ticketModel = new Ticket();
         $attachmentModel = new Attachment();
         $this->session = \Config\Services::session();
 
 
-            $data = [
-                'usuario'       => $this->session->id,
-                'category'      => $this->request->getPost('category'),
-                'priority'      => $this->request->getPost('priority'),
-                'title'         => $this->request->getPost('title'),
-                'description'   => $this->request->getPost('description'),
-                'slug'          => url_title($this->request->getPost('description'), '-', true),
-                'url'           => $this->request->getPost('url'),
-                'status'        => 's01',
-                'phone'         => $this->request->getPost('phone'),
-                'email'         => $this->request->getPost('email'),
-                'remote'        => $this->request->getPost('remote'),
-                'dateMeeting'   => $this->request->getPost('dateMeeting'),
-                'hourMeeting'   => $this->request->getPost('hourMeeting'),
-                'ok'            => true
-            ];
+        $data = [
+            'usuario' => $this->session->id,
+            'category' => $this->request->getPost('category'),
+            'priority' => $this->request->getPost('priority'),
+            'title' => $this->request->getPost('title'),
+            'description' => $this->request->getPost('description'),
+            'slug' => url_title($this->request->getPost('description'), '-', true),
+            'url' => $this->request->getPost('url'),
+            'status' => 's01',
+            'phone' => $this->request->getPost('phone'),
+            'email' => $this->request->getPost('email'),
+            'remote' => $this->request->getPost('remote'),
+            'dateMeeting' => $this->request->getPost('dateMeeting'),
+            'hourMeeting' => $this->request->getPost('hourMeeting'),
+            'ok' => true
+        ];
 
-            $ticketId = $ticketModel->insert($data);
+        $ticketId = $ticketModel->insert($data);
 
-            $files = $this->request->getFiles();
+        $files = $this->request->getFiles();
 
-            foreach ($files['attachments'] as $attachment) {
-                if ($attachment->isValid() && !$attachment->hasMoved()) {
-                    $newName = $attachment->getRandomName();
-                    $attachment->move(ROOTPATH . 'public/uploads', $newName);
+        foreach ($files['attachments'] as $attachment) {
+            if ($attachment->isValid() && !$attachment->hasMoved()) {
+                $originalFilename = $attachment->getName();
 
-                    $attachmentModel->insert([
-                        'ticket_id' => $ticketId,
-                        'file_name' => $newName,
-                    ]);
+                $targetPath = ROOTPATH . 'public/uploads/' . $originalFilename;
+                $i = 1;
+                while (file_exists($targetPath)) {
+                    $targetPath = ROOTPATH . 'public/uploads/' . pathinfo($originalFilename, PATHINFO_FILENAME) . '_' . $i . '.' . pathinfo($originalFilename, PATHINFO_EXTENSION);
+                    $i++;
                 }
-            }
 
-            return redirect()->to('/usuario/tickets')->with('success', 'Registro exitoso');
+                $attachment->move(dirname($targetPath), basename($targetPath));
+
+                $attachmentModel->insert([
+                    'ticket_id' => $ticketId,
+                    'file_name' => basename($targetPath),
+                ]);
+            }
+        }
+
+        return redirect()->to('/usuario/tickets')->with('success', 'Registro exitoso');
 
     }
-
-
-
-
 
 
     /**
@@ -319,18 +318,18 @@ class TicketController extends ResourceController
         if ($ticket) {
             $categories = model('Categoria');
             $priorities = model('Prioridad');
-            $status     = model('Status');
-            $usuarios   = model('UserModel');
+            $status = model('Status');
+            $usuarios = model('UserModel');
             $areas = model('Area');
 
             $data = [
-                'title'         => 'Nuevo ticket de soporte',
-                'status'        => $status->findAll(),
-                'priorities'    => $priorities->findAll(),
-                'categories'    => $categories->findAll(),
-                'usuarios'      => $usuarios->findAll(),
-                'areas'         => $areas->findAll(),
-                'ticket'        => $ticket
+                'title' => 'Nuevo ticket de soporte',
+                'status' => $status->findAll(),
+                'priorities' => $priorities->findAll(),
+                'categories' => $categories->findAll(),
+                'usuarios' => $usuarios->findAll(),
+                'areas' => $areas->findAll(),
+                'ticket' => $ticket
             ];
 
             return view('tickets/edit', $data);
@@ -349,14 +348,14 @@ class TicketController extends ResourceController
     {
         $inputs = $this->validate([
             // 'area'          => 'required',
-            'usuario'       => 'rquired',
-            'category'      => 'required',
-            'priority'      => 'required',
-            'title'         => 'required|min_length[5]|max_length[150]',
-            'description'   => 'required|min_length[5]',
-            'status'        => 'required',
-            'phone'         => 'required',
-            'email'         => 'required'
+            'usuario' => 'rquired',
+            'category' => 'required',
+            'priority' => 'required',
+            'title' => 'required|min_length[5]|max_length[150]',
+            'description' => 'required|min_length[5]',
+            'status' => 'required',
+            'phone' => 'required',
+            'email' => 'required'
         ]);
 
         if (!$inputs) {
@@ -367,23 +366,23 @@ class TicketController extends ResourceController
 
         $this->ticket->save([
             // 'area'          => $this->request->getVar('area'),
-            'usuario'       => $this->request->getVar('usuario'),
-            'category'      => $this->request->getVar('category'),
-            'priority'      => $this->request->getVar('priority'),
-            'title'         => $this->request->getVar('title'),
-            'slug'          => url_title($this->request->getVar('title'), '-', true),
-            'description'   => $this->request->getVar('description'),
-            'evidence'      => $this->request->getVar('evidence'),
-            'url'           => $this->request->getVar('url'),
-            'status'        => $this->request->getVar('status'),
-            'phone'         => $this->request->getVar('phone'),
-            'email'         => $this->request->getVar('email')
+            'usuario' => $this->request->getVar('usuario'),
+            'category' => $this->request->getVar('category'),
+            'priority' => $this->request->getVar('priority'),
+            'title' => $this->request->getVar('title'),
+            'slug' => url_title($this->request->getVar('title'), '-', true),
+            'description' => $this->request->getVar('description'),
+            'evidence' => $this->request->getVar('evidence'),
+            'url' => $this->request->getVar('url'),
+            'status' => $this->request->getVar('status'),
+            'phone' => $this->request->getVar('phone'),
+            'email' => $this->request->getVar('email')
         ]);
         session()->setFlashdata('success', 'Registro actualizado');
         return redirect()->to(base_url('/tickets'));
     }
 
-    
+
     /**
      * Delete the designated resource object from the model
      *
@@ -393,7 +392,7 @@ class TicketController extends ResourceController
     {
         $this->ticket->delete($id);
         session()->setFlashdata('success', 'Registro eliminado con éxito');
-        return redirect()->to(base_url('/admin/tickets'));
+        return redirect()->to(base_url('/usuario/tickets'));
     }
 
 
@@ -402,14 +401,14 @@ class TicketController extends ResourceController
         echo 'Este script exporta datos de la base de datos a un archivo .xlsx';
     }
 
-    
+
     public function exportarPDF()
     {
         echo "Aquí irá la exportación en PDF";
     }
 
 
-    public function imprimirComprobante() 
+    public function imprimirComprobante()
     {
         return view('comprobante/imprimirComprobante');
     }
@@ -422,30 +421,30 @@ class TicketController extends ResourceController
         $arrayMeses = array(
             1 => "Enero",
             2 => "Febrero",
-            3 => "Marzo", 
-            4 => "Abril", 
-            5 => "Mayo", 
-            6 => "Junio", 
-            7 => "Julio", 
-            8 => "Agosto", 
-            9 => "Septiembre", 
-            10 => "Octubre", 
-            11 => "Noviembre", 
+            3 => "Marzo",
+            4 => "Abril",
+            5 => "Mayo",
+            6 => "Junio",
+            7 => "Julio",
+            8 => "Agosto",
+            9 => "Septiembre",
+            10 => "Octubre",
+            11 => "Noviembre",
             12 => "Diciembre"
         );
         $mes = $arrayMeses[$mesx];
 
         $diax = date("w"); // Dia semana 0 a 6, donde 0 es domingo 
         $array_dia_semana = array(
-            0 => "Domingo", 
-            1 => "Lunes", 
-            2 => "Martes", 
-            3 => "Miércoles", 
-            4 => "Jueves", 
-            5 => "Viernes", 
+            0 => "Domingo",
+            1 => "Lunes",
+            2 => "Martes",
+            3 => "Miércoles",
+            4 => "Jueves",
+            5 => "Viernes",
             6 => "Sábado"
         );
-        $dia_semana = $array_dia_semana[$diax];  
+        $dia_semana = $array_dia_semana[$diax];
 
         $dia = date("d");    // Devuelve el día del mes
         $anio = date("Y");    // Devuelve el año
@@ -467,18 +466,18 @@ class TicketController extends ResourceController
         $usuariodb = "root";
         $passworddb = "";
         $dbname = "sistematickets";
-            
+
         // Generando la conexión con el servidor
         $conectar = mysqli_connect($hostname, $usuariodb, $passworddb, $dbname);
 
-        $mihtml = '<style>'.file_get_contents("assets/css/bulma.min.css").'</style>';
+        $mihtml = '<style>' . file_get_contents("assets/css/bulma.min.css") . '</style>';
 
         //$mihtml 
 
         $mihtml .= '<table class="table is-striped is-bordered px-6">';
         $mihtml .= '<tr><td colspan=5 style="text-align:center">CONCENTRADO DE TICKETS DE SOPORTE</td></tr><br><br>';
 
-        $mihtml .= '<tr><td colspan=5 style="text-align:left">Fecha: ' . $fecha .' </td></tr><br><br>';
+        $mihtml .= '<tr><td colspan=5 style="text-align:left">Fecha: ' . $fecha . ' </td></tr><br><br>';
         $mihtml .= '<thead style="font-size:10">';
         $mihtml .= '<tr>';
         $mihtml .= '<th>ID</th>';
@@ -495,7 +494,7 @@ class TicketController extends ResourceController
         $ticketsNoIniciados = $db->table('tickets')->like('status', 's01')->countAllResults();
         $ticketsFinalizados = $db->table('tickets')->like('status', 's05')->countAllResults();
 
-        $mihtml .= '<tr height=80px style="text-align:center"><td colspan=5 style="text-center">Total: ' . $total . ' tickets, de los cuales ' . $ticketsNoIniciados . ' tickets tienen estado NO INICIADO y '. $ticketsFinalizados. ' tickets FINALIZADOS</td>';
+        $mihtml .= '<tr height=80px style="text-align:center"><td colspan=5 style="text-center">Total: ' . $total . ' tickets, de los cuales ' . $ticketsNoIniciados . ' tickets tienen estado NO INICIADO y ' . $ticketsFinalizados . ' tickets FINALIZADOS</td>';
         /*
         $mihtml .= '<td style="text-center">' . $ticketsNoIniciados . ' tickets NO INICIADOS</td>';
         $mihtml .= '<td colspan=2 style="text-center">' . $ticketsFinalizados. ' tickets FINALIZADOS</td></tr>';
@@ -505,27 +504,27 @@ class TicketController extends ResourceController
 
         $resultado = "select * from tickets order by status asc";
         $resultado = mysqli_query($conectar, $resultado);
-        
+
         while ($ticket = mysqli_fetch_assoc($resultado)) {
             $mihtml .= '<tr>';
             $mihtml .= '<td>' . $ticket['id'] . '</td>';
             if ($ticket['status'] == 's01') {
-                            $mihtml .= '<td style="color:red">' . 'No iniciado' . '</td>';
-                            } else if ($ticket['status'] == 's02') {
-                                $mihtml .= '<td>' . 'Iniciado' . '</td>';
-                            } else if ($ticket['status'] == 's03') {
-                                $mihtml .= '<td>' . 'En revisión' . '</td>';
-                            } else if ($ticket['status'] == 's04') {
-                                $mihtml .= '<td>' . 'En proceso' . '</td>';
-                            } else if ($ticket['status'] == 's05') {
-                                $mihtml .= '<td style="color:green">' . 'Finalizado' . '</td>';
-                            } else if ($ticket['status'] == 's06') {
-                                $mihtml .= '<td>' . 'Abierto' . '</td>';
-                            } else if ($ticket['status'] == 's07') {
-                                $mihtml .= '<td>' . 'Reabierto' . '</td>';
-                            } else if ($ticket['status'] == 's08') {
-                                $mihtml .= '<td>' . 'Cerrado' . '</td>';
-                            }
+                $mihtml .= '<td style="color:red">' . 'No iniciado' . '</td>';
+            } else if ($ticket['status'] == 's02') {
+                $mihtml .= '<td>' . 'Iniciado' . '</td>';
+            } else if ($ticket['status'] == 's03') {
+                $mihtml .= '<td>' . 'En revisión' . '</td>';
+            } else if ($ticket['status'] == 's04') {
+                $mihtml .= '<td>' . 'En proceso' . '</td>';
+            } else if ($ticket['status'] == 's05') {
+                $mihtml .= '<td style="color:green">' . 'Finalizado' . '</td>';
+            } else if ($ticket['status'] == 's06') {
+                $mihtml .= '<td>' . 'Abierto' . '</td>';
+            } else if ($ticket['status'] == 's07') {
+                $mihtml .= '<td>' . 'Reabierto' . '</td>';
+            } else if ($ticket['status'] == 's08') {
+                $mihtml .= '<td>' . 'Cerrado' . '</td>';
+            }
             $mihtml .= '<td>' . $ticket['title'] . '</td>';
             $mihtml .= '<td>' . $ticket['email'] . '</td>';
             $mihtml .= '<td>' . $ticket['phone'] . '</td>';
@@ -539,7 +538,7 @@ class TicketController extends ResourceController
         $mihtml .= '</tbody>';
         $mihtml .= '</table>';
 
-        
+
         $pdf->loadHtml($mihtml);
         $pdf->setPaper("Letter", "landingpage");
         $pdf->render();
@@ -547,13 +546,10 @@ class TicketController extends ResourceController
     }
 
 
-
-
     public function agregarMensaje($ticketId)
     {
         return view('usuario/mensajes/create', ['ticketId' => $ticketId]);
     }
-
 
 
     public function guardarMensaje()
@@ -563,15 +559,14 @@ class TicketController extends ResourceController
         $this->session = \Config\Services::session();
 
         $data = [
-            'usuario_id'    => $this->session->id,
-            'ticket_id'     => $this->request->getPost('ticket_id'),
-            'mensaje'       => $this->request->getPost('mensaje'),
+            'usuario_id' => $this->session->id,
+            'ticket_id' => $this->request->getPost('ticket_id'),
+            'mensaje' => $this->request->getPost('mensaje'),
         ];
 
         $mensajeModel->insert($data);
         return redirect()->to('usuario/tickets/' . $data['ticket_id']);
     }
-
 
 
 }

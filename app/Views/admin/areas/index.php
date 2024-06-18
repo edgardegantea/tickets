@@ -36,7 +36,7 @@
                                 <a href="<?= base_url('/admin/areas/'.$area['id'].'/edit'); ?>" class="btn btn-sm btn-light mx-1"><span class="fas fa-edit"><span></a>
                                 <form class="display-none" method="post" action="<?= base_url('admin/areas/'.$area['id']); ?>" id="areaDeleteForm<?=$area['id']?>">
                                     <input type="hidden" name="_method" value="DELETE"/>
-                                    <a href="javascript:void(0)" onclick="deleteArea('areaDeleteForm<?=$area['id']; ?>')" class="btn btn-sm btn-danger" title="Eliminar registro"><span class="fas fa-trash"></span></a>
+                                    <a href="javascript:void(0)" onclick="deleteArea('areaDeleteForm<?=$area['id']; ?>')" class="btn btn-sm btn-light mx-1 text-danger" title="Eliminar registro"><span class="fas fa-trash"></span></a>
                                 </form>
                             </td>
                         </tr>

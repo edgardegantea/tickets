@@ -2,7 +2,7 @@
 
 <?= $this->section("body") ?>
 
-<div class="container" style="margin-top:20px;">
+<div class="container">
     <div class="row">
         <div class="col-sm-6">
             <div class="panel panel-primary">

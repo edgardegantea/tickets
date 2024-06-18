@@ -20,6 +20,17 @@
 
 
     <style>
+
+
+      .btn {
+        border-radius: 0px;
+      }
+
+      input select text-area {
+        border-radius: 0px;
+      }
+
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -94,7 +105,7 @@
     <h1>Sistema de tickets de soporte</h1>
     <p class="lead">El ticket de soporte es el registro de un servicio al cliente realizado dentro de un sistema para este propósito. Al registrar interacciones con clientes mediante un ticket de soporte es posible organizar y encontrar cualquier demanda de forma más rápida y sencilla.</p>
     <p class="lead">
-      <a href="<?php echo base_url('/login'); ?>" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Iniciar sesión</a>
+      <a href="<?php echo base_url('/login'); ?>" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Ingresar</a>
     </p>
   </main>
 

@@ -12,7 +12,7 @@
         <?php $validation = \Config\Services::validation(); ?>
         <?php $session = \Config\Services::session(); ?>
 
-        <!-- <form action="/admin/tickets" method="post" enctype="multipart/form-data"> -->
+
         <form action="<?= base_url('/admin/tickets'); ?>" method="post" enctype="multipart/form-data">
 
             <div class="card-body">
@@ -73,7 +73,6 @@
 
                 <div class="row">
                     <div class="form-group col">
-                        <!-- Input para subir archivos adjuntos (pueden ser múltiples) -->
                         <label for="attachments">Archivos adjuntos:</label>
                         <input type="file" name="attachments[]" id="attachments" multiple>
                     </div>
@@ -93,9 +92,9 @@
 
                 <div class="card-footer">
                     <div class="btn-group" role="group" aria-label="Basic example">
-                      <button type="button" class="btn btn-primary">Cancelar</button>
-                      <button type="button" class="btn btn-primary">Guardar borrador</button>
-                      <button type="button" class="btn btn-primary">Enviar</button>
+                      <!-- <button type="button" class="btn btn-secondary">Cancelar</button> -->
+                     <!--  <button type="button" class="btn btn-info">Guardar borrador</button> -->
+                      <button type="submit" class="btn btn-primary">Enviar</button>
                     </div>
                 </div>
 

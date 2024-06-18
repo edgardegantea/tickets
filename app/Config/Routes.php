@@ -42,6 +42,12 @@ $routes->post('registro', 'RegistroController::create');
 $routes->match(['get', 'post'], 'login', 'UserController::login', ["filter" => "noauth"]);
 
 
+$routes->get('password/request-reset', 'ResetPassword::requestReset');
+$routes->post('password/send-reset-link', 'ResetPassword::sendResetLink');
+$routes->get('password/reset/(:any)', 'ResetPassword::reset/$1');
+$routes->post('password/update-password', 'ResetPassword::updatePassword');
+
+
 // Admin routes
 $routes->group("admin", ["filter" => "auth"], function ($routes) {
     
@@ -56,6 +62,9 @@ $routes->group("admin", ["filter" => "auth"], function ($routes) {
     // $routes->get('userinfo/new', 'admin\UsuariosController::new');
     
     $routes->get('perfil', 'Admin\AdminController::perfil');
+
+    $routes->get('tickets/cerrar_ticket/(:num)', 'Admin\TicketController::cerrar_ticket/$1');
+
 
     // Ruta para testear creación de pdf
     $routes->get('tickets/pdf', 'Admin\TicketController::generarPDF');
